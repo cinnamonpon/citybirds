@@ -1,4 +1,14 @@
 Rails.application.routes.draw do
+  root 'application#index'
+  get 'index' => 'application#index'
+  get 'login' =>  'sessions#login_page'
+  post 'login' => 'sessions#login'
+  get 'register' => 'sessions#register_page'
+  post 'register' => 'sessions#register'
+  get 'logout' => 'sessions#logout'
+  get 'new' => 'pages#new'
+  get 'trending' => 'pages#trending'
+  get 'discover' => 'pages#discover'
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

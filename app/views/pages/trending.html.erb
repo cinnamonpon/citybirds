@@ -1,0 +1,93 @@
+<html>
+<head>
+	<title>Trending</title>
+	<link rel="stylesheet" type="text/css" href="style.css">
+	<link href='http://fonts.googleapis.com/css?family=Roboto' rel='stylesheet' type='text/css'>
+	<script type="text/javascript" src="jquery.js"></script>
+	<script type="text/javascript" src="blocks.js"></script>
+</head>
+
+<body onload="setupBlocks();">
+	<!--HEADER-->
+	<div class="header">
+		<div class="headblock"></div>
+		<div class="user pull-right">
+			<% if session[:user_id] %>
+				<ul>
+					<li>Hello <%= @curr_user.fname %>!</li>
+					<li style="padding: 5px 2px;">|</li>
+					<li><%= link_to "Log Out", logout_path %></li>
+				</ul>
+			<% else %>
+				<ul>
+					<li><%= link_to "Log In", login_path %></li>
+					<li style="padding: 5px 2px;">|</li>
+					<li><%= link_to "Register", register_path %></li>
+				</ul>
+			<% end %>
+		</div>
+		<div class="nav headroom">
+			<div class="container">
+				<div class="nav-collapse">
+					<div class="logo navbar-nav pull-left">City Birds Logo</div>
+					<ul class="navbar-nav pull-right">
+						<li><a href="index.html">Home</a></li>
+						<li class="active"><a href="trending.html">Trending</a></li>
+						<li><a href="new.html">What's New</a></li>
+						<li><a href="discover.html">Discover</a></li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!--HEADER END-->
+	<div>
+		<div class="container">
+				<div class="block"style="top:150px; left:450px;">
+					<p>
+						Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut in dui velit. Curabitur purus odio, adipiscing ut vehicula at, pulvinar eu justo. Suspendisse potenti. Suspendisse dictum massa non mi posuere ac convallis 
+					</p>
+					<div>
+						<img src="images/star138.png">
+						<img src="images/thumb52.png">
+					</div>
+				</div>
+				<div class="block" style="top:440px; left:450px;">
+					<p>
+						Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut in dui velit. Curabitur purus odio, adipiscing ut vehicula at, pulvinar eu justo. Suspendisse potenti. Suspendisse dictum massa non mi posuere ac convallis 
+					</p>
+					<div>
+						<img src="images/star138.png">
+						<img src="images/thumb12.png">
+					</div>
+				</div>
+				<div class="block" style="top:150px; left:820px;">
+					<p>
+						Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut in dui velit. Curabitur purus odio, adipiscing ut vehicula at, pulvinar eu justo. Suspendisse potenti. Suspendisse dictum massa non mi posuere ac convallis nisi pellentesque. Morbi posuere mauris elementum metus intlla faProin et malesuada arcu. Quisque sed nulla odio, at interdum diam. Proin mollis, dui eget tristique dictum, diam purus hendrerit urna, lacinia interdum sem justo sit amet justo. Morbi a neque ut velit tempus auctor. Sed condimentum dolor in est facilisis id malesuad
+					</p>
+					<div>
+						<img src="images/star138.png">
+						<img src="images/thumb12.png">
+					</div>
+				</div>
+				<div class="block" style="top:730px; left:450px;">
+					<p>
+						Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut in dui velit. Curabitur purus odio, adipiscing ut vehicula at, pulvinar eu justo. Suspendisse potenti. Suspendisse dictum massa non mi posuere ac convallis 
+					</p>
+					<div>
+						<img src="images/star138.png">
+						<img src="images/thumb12.png">
+					</div>
+				</div>
+		</div>
+	</div>
+
+	<div class="sticky-controls">
+			<div class="wrap">
+				<div class="controls pull-left">
+					<li><img src="images/addition6.png"></li>
+				</div>
+			</div>
+	</div>
+</body>
+</html>
