@@ -148,7 +148,7 @@ li a:hover, a:hover{
 	margin-left: 15%;
 }
 
-h1, label,p{
+h1, label ,p{
 	padding-left: 50px;
 	font-family: 'Roboto';
 }
@@ -241,4 +241,81 @@ span{
 .circle{
 	border-radius: 50%;
 	margin-bottom: 10px;
+}
+
+.modalDialog {
+  position: fixed;
+  font-family: 'Roboto';
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background: rgba(0,0,0,0.8);
+  z-index: 99999;
+  opacity:0;
+  -webkit-transition: opacity 400ms ease-in;
+  -moz-transition: opacity 400ms ease-in;
+  transition: opacity 400ms ease-in;
+  pointer-events: none;
+}
+
+.modalDialog:target {
+	opacity:1;
+	pointer-events: auto;
+}
+
+.modalDialog > div {
+	width: 400px;
+	position: relative;
+	margin: 15% auto;
+	padding: 5px 20px 30px 20px;
+	border-radius: 10px;
+	background: #f7f7f7;
+}
+
+.close {
+	background: #606061;
+	color: #FFFFFF;
+	line-height: 25px;
+	position: absolute;
+	right: -12px;
+	text-align: center;
+	top: -10px;
+	width: 24px;
+	text-decoration: none;
+	font-weight: bold;
+	-webkit-border-radius: 12px;
+	-moz-border-radius: 12px;
+	border-radius: 12px;
+	-moz-box-shadow: 1px 1px 3px #000;
+	-webkit-box-shadow: 1px 1px 3px #000;
+	box-shadow: 1px 1px 3px #000;
+}
+
+.close:hover { background: blue; }
+
+
+#submit{
+	background-color: blue;
+	font-family: 'Roboto';
+	border-radius: 2px;
+	border-color: blue;
+	color: white;
+}
+
+.fileUpload {
+	position: relative;
+	overflow: hidden;
+	margin: 10px;
+}
+.fileUpload input.upload {
+	position: absolute;
+	top: 0;
+	right: 0;
+	margin: 0;
+	padding: 0;
+	font-size: 20px;
+	cursor: pointer;
+	opacity: 0;
+	filter: alpha(opacity=0);
 }
