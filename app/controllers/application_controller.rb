@@ -3,7 +3,7 @@ class ApplicationController < ActionController::Base
   # For APIs, you may want to use :null_session instead.
 
   def index
-  	 @curr_user = User.where(id: session[:user_id]).first
+  	 #@curr_user = User.where(id: session[:user_id]).first
   end
 
   protect_from_forgery with: :exception
