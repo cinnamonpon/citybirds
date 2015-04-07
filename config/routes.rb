@@ -9,6 +9,10 @@ Rails.application.routes.draw do
   get 'new' => 'pages#new'
   get 'trending' => 'pages#trending'
   get 'discover' => 'pages#discover'
+  post 'post' => 'profile#post'
+
+  get 'test_post' => 'profile#test_post' #used for testing the code
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

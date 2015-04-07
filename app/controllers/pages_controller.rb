@@ -8,4 +8,15 @@ class PagesController < ApplicationController
 	def discover
 
 	end
+	def up_vote
+		# 
+	end
+
+	def down_vote
+
+	end
+
+	def up_vote
+
+	end
 end

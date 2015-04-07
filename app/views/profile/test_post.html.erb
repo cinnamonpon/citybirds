@@ -1,0 +1,6 @@
+<%= form_tag('post', :multipart => true) do %>
+Title: <input type='text' name='title'/> <br> <br>
+Message: <input type='text' name='message'/> <br><br>
+<%= file_field_tag 'upload' %><br>
+<input type='submit' value='Upload'/>
+<% end %>
