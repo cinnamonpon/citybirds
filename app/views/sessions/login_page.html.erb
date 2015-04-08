@@ -38,27 +38,6 @@
 		<a name="Home"></a>
 		<div class="container">
 			<div class="content">
-				<!-- <div class="inner-content">
-					<div class="headroom"></div>
-					<div class="align-content">
-						<h1>Log-in</h1>
-						<p style="font-size:14px;">Don't have an account?<a href="register.html" style="color:blue;"> <strong>Register</strong> </a> now! Don't miss anymore updates from the latest trending City Birds in your area today!</p>
-					</div><hr><br>
-
-					<div class="align-content">
-						<%= form_tag('/login', method: :post) do %>
- 						<label>Username:</label>
-						<input class="login" type="text" name ='username'><span>*</span>
-						<label style="margin-left:68px;">Password: </label>
-						<input class="login" type="password" name='password'><span>*</span>
-						<br><br>
-						<span class="pull-right" style="margin-right:20%;">*Required</span>
-						<br>
-						<input type='submit' value='Log In' class="pull-right" style="margin-right:20%; padding:1px;">
-						<% end %>
-						<br><br><br><br><br><br><br>	
-					</div>
-				</div> -->
 				<div style="overflow:hidden;" class="login-input">
 
 					<div class="pull-left">
@@ -85,7 +64,7 @@
 					onfocus="(this.value == 'Last Name') && (this.value = '')"
        				onblur="(this.value == '') && (this.value = 'Last Name')">
 
-					<input name="Name" value="Username"
+					<input style="margin-top: 20px;" name="Name" value="Username"
 					onfocus="(this.value == 'Username') && (this.value = '')"
        				onblur="(this.value == '') && (this.value = 'Username')">
        				<br>

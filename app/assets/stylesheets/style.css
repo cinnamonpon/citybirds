@@ -68,6 +68,44 @@ li a:hover, a:hover{
 	text-decoration: none;
 }
 
+.img-home{
+	margin-left: 50px;
+}
+
+.banner {
+	margin-top: 10px;
+	margin-bottom: 0px;
+	margin-right: 0px;
+	height: 250px;
+	width: 100%;
+
+}
+
+.banner-text{
+	display: block;
+	font-family: 'Roboto';
+	font-size: 80px;
+	color: white;
+	margin-top: 60px;
+	margin-left: 900px;
+	z-index: 8;
+}
+
+.img-home img{
+	margin-top: 110px;
+	border-radius: 600px;
+ 	display: block;
+ 	height: 300px;
+ 	width: 400px;
+ 	z-index: 8;
+ 	box-shadow: 10px 10px 10px #888888;
+}
+
+.banner,.banner-text, .img-home{
+	position: absolute;
+	top: 0;
+	left: 0;
+}
 .header{
 	position: fixed;
 	width: 100%;
@@ -129,7 +167,7 @@ li a:hover, a:hover{
 	background-color: rgba(192,192,192,0.3);
 	width: 100%;
 	height: 550px;
-	padding-top: 125px;
+	padding-top: 90px;
 
 }
 
@@ -138,8 +176,8 @@ li a:hover, a:hover{
 	width: 100%;
 	height: 110%;
 	margin: 0 auto;
-	position: relative;
 	border-radius: 10px;
+	position: relative;
 }
 
 .center-align{
