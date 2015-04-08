@@ -13,15 +13,15 @@
 		<div class="headblock"></div>
 		<div class="user pull-right">
 			<ul>
-				<li><a href="login.html">Login</a></li>
-				<li>|</li>
-				<li><a href="register.html">Register</a></li>
+				<li><%= link_to "Log In | Register", login_path %></li>
+					<!--<li style="padding: 5px 2px;">|</li>
+					<li><%= link_to "Register", register_path %></li>-->
 			</ul>
 		</div>
 		<div class="nav headroom">
 			<div class="container">
 				<div class="nav-collapse">
-					<div class="logo navbar-nav pull-left">City Birds Logo</div>
+					<div class="logo navbar-nav pull-left"><%= link_to "City Birds Logo", index_path %></div>
 					<ul class="navbar-nav pull-right">
 						<li><a href="index.html">Home</a></li>
 						<li><a href="trending.html">Trending</a></li>
@@ -38,7 +38,7 @@
 		<a name="Home"></a>
 		<div class="container">
 			<div class="content">
-				<div class="inner-content">
+				<!-- <div class="inner-content">
 					<div class="headroom"></div>
 					<div class="align-content">
 						<h1>Log-in</h1>
@@ -58,6 +58,49 @@
 						<% end %>
 						<br><br><br><br><br><br><br>	
 					</div>
+				</div> -->
+				<div style="overflow:hidden;" class="login-input">
+
+					<div class="pull-left">
+					<label>LOGIN</label>
+					<br><br>
+					<input name="Name" value="Username" 
+					onfocus="(this.value == 'Username') && (this.value = '')"
+       				onblur="(this.value == '') && (this.value = 'Username')" >
+       				<br>
+       				<input style="margin-top: 20px;" type="password" name="Pass" value="******" 
+					onfocus="(this.value == '******') && (this.value = '')"
+       				onblur="(this.value == '') && (this.value = '******')" >
+       				<br><br><br>
+       				<button>SUBMIT</button>
+					</div>
+
+					<div class="register-input vertical-border">
+					<label>REGISTER</label>
+					<br><br>
+					<input name="Name" value="First Name"
+					onfocus="(this.value == 'First Name') && (this.value = '')"
+       				onblur="(this.value == '') && (this.value = 'First Name')">
+       				<input name="Name" value="Last Name"
+					onfocus="(this.value == 'Last Name') && (this.value = '')"
+       				onblur="(this.value == '') && (this.value = 'Last Name')">
+
+					<input name="Name" value="Username"
+					onfocus="(this.value == 'Username') && (this.value = '')"
+       				onblur="(this.value == '') && (this.value = 'Username')">
+       				<br>
+       				<input id="pass" style="margin-top: 20px;" type="password" name="Pass" value="******"
+					onfocus="(this.value == '******') && (this.value = '')"
+       				onblur="(this.value == '') && (this.value = '******')" >
+
+       				<input id="conpass" style="margin-top: 20px;" type="password" name="Pass" value="******" 
+					onfocus="(this.value == '******') && (this.value = '')"
+       				onblur="(this.value == '') && (this.value = '******')" >
+       				<br><br><br>
+
+       				<button style="margin-left:500px;">SUBMIT</button>
+					</div>
+
 				</div>
 			</div>
 		</div>
