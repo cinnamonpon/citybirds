@@ -1,8 +1,13 @@
+ul,li{
+	padding: 0px;
+	margin: 0px;
+
+}
 body{
 	margin: 0px;
 	font-size: 18px;
 	padding: 0px;	
-	background-image: url(/assets/bg.jpg);
+	background: url(images/bg.jpg);
 	background-size: repeat;
 }
 
@@ -28,12 +33,13 @@ li a:hover, a:hover{
 	border-bottom-right-radius: 10px;
 	border-bottom-left-radius: 10px;
 	height: 25px;
-	width: 150px;
+	width: 120px;
 	margin-right: 100px;
 }
 .user ul{
 	margin: 0px;
-	text-align: center;
+	margin-left: 10px;
+	padding: 3px;
 
 }
 .user li{
@@ -43,8 +49,8 @@ li a:hover, a:hover{
 	position: relative;
 	display: block;
 	text-align: -webkit-match-parent;
+	padding: 5px;
 	float: left;
-	padding: 5px 0px;
 	font-family: 'Roboto';
 }
 
@@ -58,6 +64,66 @@ li a:hover, a:hover{
 	font-family: 'Roboto';
 }
 
+.logo a:hover{
+	text-decoration: none;
+}
+
+.img-home{
+	margin-left: 50px;
+}
+
+.banner {
+	margin-top: 10px;
+	margin-bottom: 0px;
+	margin-right: 0px;
+	height: 250px;
+	width: 100%;
+
+}
+
+.user-badge{
+	width: 250px;
+	height: 250px;
+	border-radius: 100px;
+}
+
+.user-badge .name{
+	width: 200px;
+	height: 90px;
+	top: 75px;
+	background: #FFFFCC;
+	opacity: 0;
+}
+
+.user-badge:hover .name{
+	opacity: 0.9;
+}
+
+.banner-text{
+	display: block;
+	font-family: 'Roboto';
+	font-size: 80px;
+	color: white;
+	margin-top: 60px;
+	margin-left: 900px;
+	z-index: 8;
+}
+
+.img-home img{
+	margin-top: 110px;
+	border-radius: 600px;
+ 	display: block;
+ 	height: 300px;
+ 	width: 400px;
+ 	z-index: 8;
+ 	box-shadow: 10px 10px 10px #888888;
+}
+
+.banner,.banner-text, .img-home{
+	position: absolute;
+	top: 0;
+	left: 0;
+}
 .header{
 	position: fixed;
 	width: 100%;
@@ -118,8 +184,8 @@ li a:hover, a:hover{
 .content{
 	background-color: rgba(192,192,192,0.3);
 	width: 100%;
-	height: 600px;
-	padding-top: 125px;
+	height: 550px;
+	padding-top: 90px;
 
 }
 
@@ -128,8 +194,8 @@ li a:hover, a:hover{
 	width: 100%;
 	height: 110%;
 	margin: 0 auto;
-	position: relative;
 	border-radius: 10px;
+	position: relative;
 }
 
 .center-align{
@@ -143,19 +209,67 @@ li a:hover, a:hover{
 	font-size: 18px;
 	color: rgba(111,212,212,10);
 }
+
+.register-input{
+	width:620px;
+	margin-left: 380px;
+}
+
+.vertical-border{
+	border-left: thick solid blue;
+}
+.login-input{
+	padding-top: 150px;
+	padding-left: 57px;
+
+}
+
+.login-input input[type="text"], input[type="password"]{
+
+	width: 200px;
+	height: 30px;
+	color: black;
+	background-color: rgba(192,192,192,0.3);
+	box-shadow: 10px 10px 5px #888888;
+	z-index: 20;
+	border-style: none;
+	border-radius: 10px;
+	margin-left: 50px;
+	margin-top: 10px;
+}
+
+input[name="submit"]{
+	background-color: transparent;
+	border-style: none;
+	width: 100px;
+	height: 30px;
+	margin-left: 200px;
+	border: 1px solid black;
+	font-family: 'Roboto'
+
+}
+
+input[name="submit"]:hover, 
+.ghost-button:active{
+	background-color: #fff;
+	color: #000;
+	border: 2px solid black;
+}
+
+input:focus{
+	outline: 0;
+}
+
+#rpassword, #lpassword, #conpass{
+	display: inline-block;
+}
 .align-content{
 	margin-top: 30px;
-	margin-left: 15%;
-}
-
-h1, label ,p{
-	padding-left: 50px;
-	font-family: 'Roboto';
-}
-
-.login{
 	margin-left: 50px;
-	width: 170px;
+}
+
+h1, input, label,p{
+	padding-left: 50px;
 	font-family: 'Roboto';
 }
 
@@ -164,8 +278,6 @@ hr{
 }
 
 span{
-	font-size: 12px;
-	font-family: 'Roboto';
 	color: red;
 }
 
@@ -243,83 +355,6 @@ span{
 	margin-bottom: 10px;
 }
 
-.modalDialog {
-  position: fixed;
-  font-family: 'Roboto';
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
-  background: rgba(0,0,0,0.8);
-  z-index: 99999;
-  opacity:0;
-  -webkit-transition: opacity 400ms ease-in;
-  -moz-transition: opacity 400ms ease-in;
-  transition: opacity 400ms ease-in;
-  pointer-events: none;
-}
-
-.modalDialog:target {
-	opacity:1;
-	pointer-events: auto;
-}
-
-.modalDialog > div {
-	width: 400px;
-	position: relative;
-	margin: 15% auto;
-	padding: 5px 20px 30px 20px;
-	border-radius: 10px;
-	background: #f7f7f7;
-}
-
-.close {
-	background: #606061;
-	color: #FFFFFF;
-	line-height: 25px;
-	position: absolute;
-	right: -12px;
-	text-align: center;
-	top: -10px;
-	width: 24px;
-	text-decoration: none;
-	font-weight: bold;
-	-webkit-border-radius: 12px;
-	-moz-border-radius: 12px;
-	border-radius: 12px;
-	-moz-box-shadow: 1px 1px 3px #000;
-	-webkit-box-shadow: 1px 1px 3px #000;
-	box-shadow: 1px 1px 3px #000;
-}
-
-.close:hover { background: blue; }
-
-
-.submit{
-	background-color: blue;
-	font-family: 'Roboto';
-	border-radius: 2px;
-	border-color: blue;
-	color: white;
-}
-
-.fileUpload {
-	position: relative;
-	overflow: hidden;
-	margin: 10px;
-}
-.fileUpload input.upload {
-	position: absolute;
-	top: 0;
-	right: 0;
-	margin: 0;
-	padding: 0;
-	font-size: 20px;
-	cursor: pointer;
-	opacity: 0;
-	filter: alpha(opacity=0);
-}
-
 
 .badge{
 	display: inline-block;
@@ -334,6 +369,7 @@ span{
 	vertical-align: baseline;
 	background-color: red;
 	border-radius: 10px;
+
 }
 
 .menu,
@@ -430,4 +466,164 @@ span{
     overflow: visible;
     padding: 0;
     width: 200px;
+}
+
+
+#flag {
+  width: 110px;
+  height: 160px;
+  padding-top: 15px;
+  position: relative;
+  background: blue;
+  color: white;
+  font-size: 11px;
+  letter-spacing: 0.2em;
+  text-align: center;
+  text-transform: uppercase;
+  float: right;
+}
+#flag:after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 0;
+  height: 0;
+  border-bottom: 13px solid #eee;
+  border-left: 55px solid transparent;
+  border-right: 55px solid transparent;
+}
+
+
+.tv {
+  position: relative;
+  width: 200px;
+  height: 150px;
+  margin: 20px 0;
+  background: red;
+  border-radius: 50% / 10%;
+  color: white;
+  text-align: center;
+  text-indent: .1em;
+}
+.tv:before {
+  content: '';
+  position: absolute;
+  top: 10%;
+  bottom: 10%;
+  right: -5%;
+  left: -5%;
+  background: inherit;
+  border-radius: 5% / 50%;
+}
+
+.mainDIV{
+	margin-top: 200px;
+    position:relative;
+    width:100%;
+    min-width:315px;
+}
+.leftDIV{
+    position:absolute;
+    top:50px;
+    right: 30px;
+    left:30px;
+    height:200px;
+    width:340px;
+    background:#66FF99;
+    border-radius: 30px;
+}
+.middleDIV{
+    height:200px;
+    width:340px;
+    background:#66FF99;
+ 	border-radius: 30px;
+    margin:0px auto;
+}
+.rightDIV{
+    position:absolute;
+    top:50px;
+    right:30px;
+    height:200px;
+    width:340px;
+    background:#66FF99;
+    border-radius: 30px;
+}
+
+
+.modalDialog {
+  position: fixed;
+  font-family: 'Roboto';
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background: rgba(0,0,0,0.8);
+  z-index: 99999;
+  opacity:0;
+  -webkit-transition: opacity 400ms ease-in;
+  -moz-transition: opacity 400ms ease-in;
+  transition: opacity 400ms ease-in;
+  pointer-events: none;
+}
+
+.modalDialog:target {
+	opacity:1;
+	pointer-events: auto;
+}
+
+.modalDialog > div {
+	width: 400px;
+	position: relative;
+	margin: 15% auto;
+	padding: 5px 20px 30px 20px;
+	border-radius: 10px;
+	background: #f7f7f7;
+}
+
+.close {
+	background: #606061;
+	color: #FFFFFF;
+	line-height: 25px;
+	position: absolute;
+	right: -12px;
+	text-align: center;
+	top: -10px;
+	width: 24px;
+	text-decoration: none;
+	font-weight: bold;
+	-webkit-border-radius: 12px;
+	-moz-border-radius: 12px;
+	border-radius: 12px;
+	-moz-box-shadow: 1px 1px 3px #000;
+	-webkit-box-shadow: 1px 1px 3px #000;
+	box-shadow: 1px 1px 3px #000;
+}
+
+.close:hover { background: blue; }
+
+
+.submit{
+	background-color: blue;
+	font-family: 'Roboto';
+	border-radius: 2px;
+	border-color: blue;
+	color: white;
+}
+
+.fileUpload {
+	position: relative;
+	overflow: hidden;
+	margin: 10px;
+}
+.fileUpload input.upload {
+	position: absolute;
+	top: 0;
+	right: 0;
+	margin: 0;
+	padding: 0;
+	font-size: 20px;
+	cursor: pointer;
+	opacity: 0;
+	filter: alpha(opacity=0);
 }

@@ -1,10 +1,8 @@
-
 <html>
 <head>
 	<title>HOME</title>
 	<link rel="stylesheet" type="text/css" href="style.css">
 	<link href='http://fonts.googleapis.com/css?family=Roboto' rel='stylesheet' type='text/css'>
-
 </head>
 
 <body>
@@ -15,35 +13,26 @@
 		<div class="headblock"></div>
 		<div class="user pull-right">
 			<% if session[:user_id] %>
-				<ul class="menu">
-					<li class="badge"><a href="#">4</a>
-						<ul>
-							<li style="margin-left:2px;"><a href="#">[User1] liked your [post: redirect]</a></li>
-							<li><a href="#">[User1] liked your [post: redirect]</a></li>
-							<li><a href="#">[User1] liked your [post: redirect]</a></li>
-							<li><a href="#">[User1] liked your [post: redirect]</a></li>
-						</ul>
-					</li>
-					<li><a href="#"><%= @curr_user.fname %></a></li>
-					<li><%= link_to "Log Out", logout_path %>
+				<ul>
+					<li>Hello <%= @curr_user.fname %>!</li>
+					<li style="padding: 5px 2px;">|</li>
+					<li><%= link_to "Log Out", logout_path %></li>
 				</ul>
 			<% else %>
 				<ul>
-					<li><%= link_to "Log In", login_path %></li>
-					<li style="padding: 5px 2px;">|</li>
-					<li><%= link_to "Register", register_path %></li>
+					<li><%= link_to "Log In | Register", login_path %></li>
 				</ul>
 			<% end %>
 		</div>
 		<div class="nav headroom">
 			<div class="container">
 				<div class="nav-collapse">
-					<div class="logo navbar-nav pull-left">City Birds Logo</div>
+					<d\iv class="logo navbar-nav pull-left">City Birds Logo</div>
 					<ul class="navbar-nav pull-right">
 						<li class="active"><a href="index.html">Home</a></li>
 						<li><a href="#Trending">Trending</a></li>
 						<li><a href="#New">What's New</a></li>
-						<li><a href="#Discover">Discover</a></li>
+						<li><a href="#Discover">Community</a></li>
 					</ul>
 				</div>
 			</div>
@@ -56,29 +45,69 @@
 			<a name="Home"></a>
 			<div class="content">
 				<div class="inner-content center-align">
-					<p>LOGO OR TEASER WHATEVER YOU LIKE HERE.</p>
-					<input class="search" type="text" value="Search Anything You Like!">
+					<div class="banner">
+						<%=image_tag ("blueblank-ribbon.png"), {:class => "banner"} %>
+					</div>	
+					<div class="banner-text pull-right">HOME</div>
+					<div class="img-home pull-left"><%=image_tag ("citybird-img.png") %>
+					</div>
 				</div>
 			</div>
 			<a name="Trending"></a>
 			<div class="content">
 				<div class="inner-content center-align">
 					<div class="headroom"></div>
-					<a href="trending.html"> See All Trending ></a>
+					<div class="banner">
+						<%=image_tag ("blueblank-ribbon.png"), {:class => "banner"} %>
+					</div>	
+					<div class="banner-text" style="margin-left:740px;">TRENDING</div>
+					<!--POSTS-->
+					<div class="mainDIV">
+					    <div class="leftDIV tv"></div>
+					    <div class="middleDIV tv"></div>
+					    <div class="rightDIV tv"></div>
+					</div>
 				</div>
 			</div>
 			<a name="New"></a>
 			<div class="content">
 				<div class="inner-content center-align">
 					<div class="headroom"></div>
-					<a href="new.html"> See All Newest Posts ></a>
+					<div class="banner">
+						<%=image_tag ("blueblank-ribbon.png"), {:class => "banner"} %>
+					</div>	
+					<div class="banner-text" style="margin-left:755px; font-size:60px; margin-top:70px;">WHAT'S NEW</div>
+					<!--POSTS-->
+					<div class="mainDIV">
+					    <div style="background:#FFCC33;"class="leftDIV tv"></div>
+					    <div style="background:#FFCC33;" class="middleDIV tv"></div>
+					    <div style="background:#FFCC33;" class="rightDIV tv"></div>
+					</div>
 				</div>
 			</div>
 			<a name="Discover"></a>
 			<div class="content">
 				<div class="inner-content center-align">
 					<div class="headroom"></div>
-					<a href="discover.html"> See Who's On City Birds ></a>
+					<div class="banner">
+						<%=image_tag ("blueblank-ribbon.png"), {:class => "banner"} %>
+					</div>	
+					<div class="banner-text" style="margin-left:650px;">COMMUNITY</div>
+					<!--POSTS-->
+					<div class="mainDIV">
+					    <div style="background:red;"class="leftDIV">
+					    <%=image_tag ("2.PNG"), {:class => "user-badge"} %>
+					    	<div class="name"></div>
+						</div>
+					    <div style="background:none;" class="middleDIV tv">
+					    <%=image_tag ("4.PNG"), {:class => "user-badge"} %>
+					    	<div class="name"></div>
+					    </div>
+					    <div style="background:none;" class="rightDIV tv">
+					    <%=image_tag ("6.PNG"), {:class => "user-badge"} %>
+					    	<div class="name"></div>
+					    </div>
+					</div>
 				</div>
 			</div>
 		</div>
@@ -108,7 +137,7 @@
 		        				<%= file_field_tag :post, :class => "upload" %>
 		        			</div><br>
 		        			<span id="error"></span><br>
-	        				<%= submit_tag "Upload", :id => "sub", :class => "submit" %>
+	        				<%= submit_tag "Upload", :id => "sub", :class => "submit", :style => "padding: 2px 4px 2px 4px;"%>
 	        			<% end %>
 		        		
 					</div>
@@ -117,4 +146,4 @@
 	<% end %>
 	<!--end footer-->
 </body>
-</html> 
+</html>
