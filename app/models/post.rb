@@ -7,7 +7,8 @@ class Post < ActiveRecord::Base
 	end
 
 	def self.get_post(user_id, post_id)
-		post = Post.where('user_id = ? and post_id = ?', user_id, post_id)
+		post = Post.where('user_id = ? and post_id = ?', user_id, post_id).to_a.first
+		post
 	end
 
 	def self.edit_likes(user_id, post_id, method)
@@ -17,5 +18,9 @@ class Post < ActiveRecord::Base
 		elsif method == "down"
 			like.likes = like.likes - 1
 		end
+	end
+
+	def self.delete_post(user_id, post_id)
+		post = Post.where('user_id = ? and post_id = ?', user_id, post_id).destroy_all
 	end
 end
