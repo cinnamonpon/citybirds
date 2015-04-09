@@ -20,9 +20,7 @@
 				</ul>
 			<% else %>
 				<ul>
-					<li><%= link_to "Log In", login_path %></li>
-					<li style="padding: 5px 2px;">|</li>
-					<li><%= link_to "Register", register_path %></li>
+					<li><%= link_to "Log In | Register", login_path %></li>
 				</ul>
 			<% end %>
 		</div>
@@ -34,7 +32,7 @@
 						<li class="active"><a href="index.html">Home</a></li>
 						<li><a href="#Trending">Trending</a></li>
 						<li><a href="#New">What's New</a></li>
-						<li><a href="#Discover">Discover</a></li>
+						<li><a href="#Discover">Community</a></li>
 					</ul>
 				</div>
 			</div>
@@ -47,42 +45,158 @@
 			<a name="Home"></a>
 			<div class="content">
 				<div class="inner-content center-align">
-					<p>LOGO OR TEASER WHATEVER YOU LIKE HERE.</p>
-					<input class="search" type="text" value="Search Anything You Like!">
+					<div class="banner">
+						<%=image_tag ("blueblank-ribbon.png"), {:class => "banner"} %>
+					</div>	
+					<div class="banner-text pull-right">HOME</div>
+					<div class="img-home pull-left"><%=image_tag ("citybird-img.png") %>
+					</div>
 				</div>
 			</div>
 			<a name="Trending"></a>
 			<div class="content">
 				<div class="inner-content center-align">
 					<div class="headroom"></div>
-					<a href="trending.html"> See All Trending ></a>
+					<div class="banner">
+						<%=image_tag ("blueblank-ribbon.png"), {:class => "banner"} %>
+					</div>	
+					<div class="banner-text" style="margin-left:740px;">TRENDING</div>
+					<!--POSTS-->
+					<div class="mainDIV">
+					    <div class="leftDIV tv"><a href="#viewModal">VIEW</a></div>
+					    <div class="middleDIV tv"><a href="#viewModal">VIEW</a></div>
+					    <div class="rightDIV tv"><a href="#viewModal">VIEW</a></div>
+					</div>
+					<div id="triangle-down"></div>
 				</div>
 			</div>
 			<a name="New"></a>
 			<div class="content">
 				<div class="inner-content center-align">
 					<div class="headroom"></div>
-					<a href="new.html"> See All Newest Posts ></a>
+					<div class="banner">
+						<%=image_tag ("blueblank-ribbon.png"), {:class => "banner"} %>
+					</div>	
+					<div class="banner-text" style="margin-left:755px; font-size:60px; margin-top:70px;">WHAT'S NEW</div>
+					<!--POSTS-->
+					<div class="mainDIV">
+					    <div style="background:#FFCC33;"class="leftDIV tv"><a href="#viewModal">VIEW</a></div>
+					    <div style="background:#FFCC33;" class="middleDIV tv"><a href="#viewModal">VIEW</a></div>
+					    <div style="background:#FFCC33;" class="rightDIV tv"><a href="#viewModal">VIEW</a></div>
+					</div>
+					<div id="triangle-down"></div>
 				</div>
 			</div>
 			<a name="Discover"></a>
 			<div class="content">
 				<div class="inner-content center-align">
 					<div class="headroom"></div>
-					<a href="discover.html"> See Who's On City Birds ></a>
+					<div class="banner">
+						<%=image_tag ("blueblank-ribbon.png"), {:class => "banner"} %>
+					</div>	
+					<div class="banner-text" style="margin-left:650px;">COMMUNITY</div>
+					<!--POSTS-->
+					<div class="mainDIV">
+					    <div style="background:none;"class="leftDIV">
+					    <%=image_tag ("2.PNG"), {:class => "user-badge"} %>
+					    	<div class="name"></div>
+						</div>
+					    <div style="background:none;" class="middleDIV tv">
+					    <%=image_tag ("4.PNG"), {:class => "user-badge"} %>
+					    	<div class="name"></div>
+					    </div>
+					    <div style="background:none;" class="rightDIV tv">
+					    <%=image_tag ("6.PNG"), {:class => "user-badge"} %>
+					    	<div class="name"></div>
+					    </div>
+					</div>
+					<div id="triangle-down"></div>
 				</div>
 			</div>
 		</div>
 	</div>
 
 	<!--FOOTER-->
-	<div class="sticky-controls">
-			<div class="wrap">
-				<div class="controls pull-left">
-					<li><img src="images/addition6.png"></li>
+		<div class="sticky-controls">
+				<div class="wrap">
+					<div class="controls pull-left">
+						<li><%= link_to image_tag("addition6.png"), "#openModal" %></li>
+					</div>
 				</div>
-			</div>
+
+				<div id="openModal" class="modalDialog">
+					<div>
+						<a href = "#close" title = "Close" class = "close"> x </a>
+						<h3>Upload New Post</h3>
+						<div class="post-types">
+							<div>
+								<li><%= link_to image_tag("camera-icon.png") %></li>
+								<li><%= link_to image_tag("video-icon.png") %></li>
+							</div>
+							<div>
+								<label style="padding-left:15px;">PHOTO</label>
+								<label style="padding-left:20px;">VIDEO</label>
+							</div>
+						</div>
+
+						<div class="hidden-input">
+							<label>TITLE:</label>
+							<input type="text">
+							<button>SUBMIT</button>
+							<br>
+						</div>
+
+						<div class="submit">
+							<li><%= link_to image_tag("checkmark.png") %></li>
+							<label>SUBMMITED!</label>
+						</div>
+					</div>
+				</div>
 		</div>
 	<!--end footer-->
+
+	<div id="viewModal" class="viewDialog">
+				<div>
+					<a href = "#close" title = "Close" class = "close"> x </a>
+					<h3 style="position:absolute;">TITLE OF THE POST</h3>
+					<%=image_tag ("facebook-share-button.png"), {:class => "user-small pull-right"} %>
+					
+					<div class="media-box">
+						
+					</div>
+
+					<div class="user-info-box">
+						<%=image_tag ("2.PNG"), {:class => "user-small"} %>
+						<label>[USERNAME]</label>
+					</div>
+
+					<div class="comment-box">
+						<!--NEW USER COMMENT-->
+						Comments
+						<div class="user-comments">
+							<%=image_tag ("2.PNG"), {:class => "user-small"} %>
+							<div class="comment">WHATEVER COMMENT THE USER HAS INPUT. Trying a longer version. :)</div>
+						</div>
+
+						<div class="user-comments">
+							<%=image_tag ("4.PNG"), {:class => "user-small"} %>
+							<div class="comment">WHATEVER COMMENT THE USER HAS INPUT. Trying a longer version. :)</div>
+						</div>
+
+						<div class="user-comments">
+							<%=image_tag ("6.PNG"), {:class => "user-small"} %>
+							<div class="comment">WHATEVER COMMENT THE USER HAS INPUT. Trying a longer version. :)</div>
+						</div>
+					</div>
+
+					<div class="add-comment">
+						<input type= "text" value="Leave a comment..."
+						onfocus="(this.value == 'Leave a comment...') && (this.value = '')"
+       					onblur="(this.value == '') && (this.value = 'Leave a comment...')" >
+       					<%=image_tag ("thumb12.png"), {:class => "like pull-right"} %>
+					</div>
+				</div>
+	</div>
+
 </body>
 </html>
