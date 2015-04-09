@@ -21,18 +21,4 @@ class ProfileController < ApplicationController
 	def comment
 
 	end
-
-# user_id, title, message, media, date_modified
-=begin
-	def upload_music
-    	music_name = params[:name]
-    	name = params[:upload]
-    	fname = name.original_filename
-    	dir = 'public/uploads'
-    	path = File.join(dir, fname)
-    	File.open(path, "wb") do |f| f.write(name.read)
-    	end
-    	Music.create_music(music_name, path, session[:user_id], session[:playlist_id])
-    end
-=end
 end

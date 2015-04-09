@@ -1,4 +1,6 @@
 class User < ActiveRecord::Base
+	has_many :post
+	has_many :comment
 
 	def self.create_user(username, fname, lname, password, password_confirm)
 		return false if password != password_confirm

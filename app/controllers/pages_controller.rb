@@ -1,9 +1,6 @@
 class PagesController < ApplicationController
 	def trending
-		@all_posts = PagesController.trending_filter(Post.all.to_a)
-	end
-
-	def new
+		#@all_posts = PagesController.trending_filter(Post.all.to_a)
 	end
 
 	def discover
@@ -18,14 +15,6 @@ class PagesController < ApplicationController
 			@display_users[i] = all_users[rng.rand(all_users.size)] #creates a random number
 			all_users.delete(all_users[rng.rand(all_users.size)])
 		end
-	end
-
-	def up_vote
-		# 
-	end
-
-	def down_vote
-
 	end
  
 	def self.trending_filter(posts) #unoptimized sorting algorithm O(n^2)
