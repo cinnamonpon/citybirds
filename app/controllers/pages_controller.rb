@@ -18,17 +18,25 @@ class PagesController < ApplicationController
 	end
  
 	def self.trending_filter(posts) #unoptimized sorting algorithm O(n^2)
-		filtered = []
+	    filtered = []
+	    temp_data = []
+	    for i in 0..posts.size-1
+	        temp_data[i] = posts[i]
+	    end
 		max = -1
 		index = -1
-		for i in 0..posts.size
-			for j in 0..posts.size
-				if min < posts[j]
-					min = posts[j]
+		temp_size = posts.size - 1
+		for i in 0..posts.size-1
+    		max = -1
+			for j in 0..temp_size
+				if max < temp_data[j]
+					max = temp_data[j]
 					index = j
 				end
 			end
-			filtered[i] = posts[j]
+			filtered[i] = max
+			temp_data.delete_at(index)
+			temp_size = temp_size - 1
 		end
 		filtered
 	end
