@@ -47,14 +47,16 @@
 
 					<div class="align-content">
 						<%= form_tag('/login', method: :post) do %>
- 						<label>Username:</label>
-						<input class="login" type="text" name ='username'><span>*</span>
-						<label style="margin-left:68px;">Password: </label>
-						<input class="login" type="password" name='password'><span>*</span>
-						<br><br>
-						<span class="pull-right" style="margin-right:20%;">*Required</span>
-						<br>
-						<input type='submit' value='Log In' class="pull-right" style="margin-right:20%; padding:1px;">
+	 						<label>Username:</label>
+							<input class="login" id="lusername" type="text" name ='username'><span>*</span>
+
+							<label style="margin-left:68px;">Password: </label>
+							<input class="login" id="lpassword" type="password" name='password'><span>*</span>
+							<br><br>
+
+							<span id="error" class="pull-right" style="margin-right:20%;">*Required</span>
+							<br>
+							<input type='submit' id='log' value='Log In' class="pull-right submit" style="margin-right:20%; padding:4px;">
 						<% end %>
 						<br><br><br><br><br><br><br>	
 					</div>

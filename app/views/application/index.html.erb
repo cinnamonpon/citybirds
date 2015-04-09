@@ -1,8 +1,10 @@
+
 <html>
 <head>
 	<title>HOME</title>
 	<link rel="stylesheet" type="text/css" href="style.css">
 	<link href='http://fonts.googleapis.com/css?family=Roboto' rel='stylesheet' type='text/css'>
+
 </head>
 
 <body>
@@ -13,10 +15,17 @@
 		<div class="headblock"></div>
 		<div class="user pull-right">
 			<% if session[:user_id] %>
-				<ul>
-					<li>Hello <%= @curr_user.fname %>!</li>
-					<li style="padding: 5px 2px;">|</li>
-					<li><%= link_to "Log Out", logout_path %></li>
+				<ul class="menu">
+					<li class="badge"><a href="#">4</a>
+						<ul>
+							<li style="margin-left:2px;"><a href="#">[User1] liked your [post: redirect]</a></li>
+							<li><a href="#">[User1] liked your [post: redirect]</a></li>
+							<li><a href="#">[User1] liked your [post: redirect]</a></li>
+							<li><a href="#">[User1] liked your [post: redirect]</a></li>
+						</ul>
+					</li>
+					<li><a href="#"><%= @curr_user.fname %></a></li>
+					<li><%= link_to "Log Out", logout_path %>
 				</ul>
 			<% else %>
 				<ul>
@@ -87,16 +96,21 @@
 				<div id="openModal" class="modalDialog">
 					<div>
 						<a href = "#close" title = "Close" class = "close"> x </a>
-						<h4>Upload</h4>
+						<h4>Upload Post</h4><hr><br>
 
-						<input id="uploadFile" placeholder="No File Chosen" disabled="disabled" />
-						<div class="fileUpload btn btn-primary">
-							<%= form_tag('/login', :multipart => true) do %>
-								<button id="submit">Choose File</button>
+					
+						<%= form_tag('/upload', :multipart => true) do %>
+							<%= text_field_tag 'desc', nil, placeholder: 'Title' %><br>
+							<div class="fileUpload btn btn-primary">			
+								<input id="uploadFile" placeholder="No File Chosen" disabled="disabled" />
+								<button class="submit">Choose File</button>
+
 		        				<%= file_field_tag :post, :class => "upload" %>
-		        				<%= submit_tag "Upload", :id => "submit" %>
-		        			<% end %>
-		        		</div>
+		        			</div><br>
+		        			<span id="error"></span><br>
+	        				<%= submit_tag "Upload", :id => "sub", :class => "submit" %>
+	        			<% end %>
+		        		
 					</div>
 				</div>
 		</div>

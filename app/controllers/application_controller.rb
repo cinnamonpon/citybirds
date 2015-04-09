@@ -6,6 +6,9 @@ class ApplicationController < ActionController::Base
   	 @curr_user = User.where(id: session[:user_id]).first
   end
 
+  def upload
+  	
+  end
   protect_from_forgery with: :exception
 
  
