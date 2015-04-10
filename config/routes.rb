@@ -9,6 +9,7 @@ Rails.application.routes.draw do
   get 'new' => 'pages#new'
   get 'trending' => 'pages#trending'
   get 'discover' => 'pages#discover'
+  post 'upload' => 'application#upload'
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

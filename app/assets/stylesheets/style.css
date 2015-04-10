@@ -33,7 +33,7 @@ li a:hover, a:hover{
 	border-bottom-right-radius: 10px;
 	border-bottom-left-radius: 10px;
 	height: 25px;
-	width: 120px;
+	width: 140px;
 	margin-right: 100px;
 }
 .user ul{
@@ -82,9 +82,17 @@ li a:hover, a:hover{
 }
 
 .user-badge{
-	width: 250px;
-	height: 250px;
+	width: 200px;
+	height: 200px;
 	border-radius: 100px;
+}
+
+.user-small{
+	width: 40px;
+	height: 40px;
+	border-radius: 100px;
+	margin-left: 20px;
+	margin-top: 5px;
 }
 
 .user-badge .name{
@@ -279,6 +287,9 @@ hr{
 
 span{
 	color: red;
+	padding-bottom: 10px;
+	font-size: 12px;
+	font-family: 'Roboto';
 }
 
 .block {
@@ -314,7 +325,7 @@ span{
 	  text-align: center;
 	  position: fixed;
 	  bottom:0;
-	  width: 100%;
+	  width: 10%;
 	  height: 70px;
 	  margin-bottom: 10px;
 }
@@ -550,11 +561,41 @@ span{
     border-radius: 30px;
 }
 
+#triangle-down {
+	width: 0;
+	height: 0;
+	border-left: 30px solid transparent;
+	border-right: 30px solid transparent;
+	border-top: 30px solid blue;
+	margin-left: 550px;
+	margin-top: 50px;
 
-.modalDialog {
+}
+
+#triangle-down:hover{
+	width: 0;
+	height: 0;
+	border-left: 30px solid transparent;
+	border-right: 30px solid transparent;
+	border-top: 30px solid red;
+	margin-left: 550px;
+	margin-top: 50px;
+}
+
+.viewDialog > div {
+	width: 700px;
+	height: 400px;
+	position: relative;
+	margin: 15% auto;
+	padding: 5px 20px 30px 20px;
+	border-radius: 10px;
+	background: #f7f7f7;
+}
+
+.modalDialog, .viewDialog {
   position: fixed;
   font-family: 'Roboto';
-  top: 0;
+  top: -60px;
   right: 0;
   bottom: 0;
   left: 0;
@@ -567,13 +608,12 @@ span{
   pointer-events: none;
 }
 
-.modalDialog:target {
+.modalDialog:target, .viewDialog:target {
 	opacity:1;
 	pointer-events: auto;
 }
-
 .modalDialog > div {
-	width: 400px;
+	width: 500px;
 	position: relative;
 	margin: 15% auto;
 	padding: 5px 20px 30px 20px;
@@ -602,28 +642,192 @@ span{
 
 .close:hover { background: blue; }
 
+.post-types{
+	margin-left: auto;
+	height: 150px;
+	margin-right: auto;
+}
+.post-types label{
+	padding-left: 5px;
+}
+.post-types img{
+	width:100px;
+	height:100px;
+	margin-top: 10px;
+}
 
-.submit{
-	background-color: blue;
+.post-types img:hover{
+	width: 110px;
+	height: 110px;
+}
+
+.post-types li{
+	list-style: none;
+	display: inline-block;
+}
+
+
+.hidden-input{
+	text-align: left;
+}
+
+.hidden-input input[type="submit"]{
+	margin-left: 200px;
+	margin-top: 30px;
+	width: 100px;
+	height: 30px;
+	border-radius: 10px;
+	font-family: 'Roboto'
+}
+
+.hidden-input input[type="text"]{
+	width: 250px;
+	height: 30px;
+	color: black;
+	background-color: rgba(192,192,192,0.3);
+	box-shadow: 10px 10px 5px #888888;
+	z-index: 20;
+	border-style: none;
+	border-radius: 10px;
+	margin-left: 30px;
+	margin-top: 20px;
 	font-family: 'Roboto';
-	border-radius: 2px;
-	border-color: blue;
-	color: white;
+	font-size: 18px;
+	padding-left: 20px;
 }
 
-.fileUpload {
-	position: relative;
-	overflow: hidden;
-	margin: 10px;
+.hidden-input label{
+	margin: auto;
+	padding: 0px;
+	margin-left: 30px;
 }
-.fileUpload input.upload {
+
+.submit img, .submit li{
+	margin-top: 8px;
+	width: 20px;
+	height: 20px;
+	list-style: none;
+	display: inline-block;
+}
+
+.submit label{
+	text-align: center;
+	font-size: 10px;
+	padding-left: 0px;
+	margin-bottom: 10px;
+}
+
+.submit img:hover{ width: 20px; height: 20px;}
+}
+
+label.filebutton {
+    width:120px;
+    height:40px;
+    overflow:hidden;
+    position:relative;
+    background-color:#ccc;
+}
+
+label span input {
+    z-index: 999;
+    line-height: 0;
+    font-size: 50px;
+    position: absolute;
+    top: -2px;
+    left: -700px;
+    opacity: 0;
+    filter: alpha(opacity = 0);
+    -ms-filter: "alpha(opacity=0)";
+    cursor: pointer;
+    _cursor: hand;
+    margin: 0;
+    padding:0;
+}
+
+.media-box{
+	background-color: transparent;
+	width: 340px;
+	height: 340px;
 	position: absolute;
-	top: 0;
-	right: 0;
-	margin: 0;
-	padding: 0;
-	font-size: 20px;
-	cursor: pointer;
-	opacity: 0;
-	filter: alpha(opacity=0);
+	margin-top: 60px;
 }
+
+.user-info-box{
+	width: 350px;
+	height: 50px;
+	background-color: transparent;
+	float: right;
+	margin-top: 15px;
+	margin-left: 390px;
+}
+
+.user-info-box label{
+	padding-left: 0px;
+
+}
+.comment-box{
+	width: 350px;
+	height: 250px;
+	background-color: transparent;
+	float: right;
+	margin-left: 300px;
+	overflow-y: scroll;
+}
+
+.add-comment{
+	width: 350px;
+	height:40px;
+	background-color: transparent;
+	float: right;
+	margin-left: 300px;
+}
+
+.add-comment input{
+	width:270px;
+	height: 34px;
+	font-size: 14px;
+	padding-left: 20px;
+}
+
+.like{
+	margin: 0px;
+	width: 40px;
+	height: 40px;
+}
+
+.like:hover{
+	cursor: pointer;
+}
+
+.user-comments{
+	width:330px;
+	height: 50px;
+	background-color: transparent;
+}
+.comment{
+	font-size: 12px;
+	float: right;
+	width: 250px;
+	margin-top: 10px;
+	margin-right:6px;
+}
+
+::-webkit-scrollbar {
+      width: 15px;
+}
+
+::-webkit-scrollbar-track {
+      background-color: #bdb6b6;
+} /* the new scrollbar will have a flat appearance with the set background color */
+ 
+::-webkit-scrollbar-thumb {
+      background-color: rgba(0, 0, 0, 0.2); 
+} /* this will style the thumb, ignoring the track */
+ 
+::-webkit-scrollbar-button {
+      background-color: white;
+} /* optionally, you can style the top and the bottom buttons (left and right for horizontal bars) */
+ 
+::-webkit-scrollbar-corner {
+      background-color: black;
+} /* if both the vertical and the horizontal bars appear, then perhaps

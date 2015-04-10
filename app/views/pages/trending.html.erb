@@ -82,14 +82,6 @@
 		</div>
 	</div>
 
-	<div class="sticky-controls">
-			<div class="wrap">
-				<div class="controls pull-left">
-					<li><img src="images/addition6.png"></li>
-				</div>
-			</div>
-	</div>
-
 	<!--FOOTER-->
 	<% if session[:user_id] %>
 		<div class="sticky-controls">
@@ -102,20 +94,103 @@
 				<div id="openModal" class="modalDialog">
 					<div>
 						<a href = "#close" title = "Close" class = "close"> x </a>
-						<h4>Upload</h4>
+						<h3>Upload New Post</h3>
 
-						<input id="uploadFile" placeholder="No File Chosen" disabled="disabled" />
-						<div class="fileUpload btn btn-primary">
-							<%= form_tag('/login', :multipart => true) do %>
-								<button id="submit">Choose File</button>
-		        				<%= file_field_tag :post, :class => "upload" %>
-		        				<%= submit_tag "Upload", :id => "submit" %>
-		        			<% end %>
-		        		</div>
-					</div>
+						<%= form_tag('/upload', :multipart => true) do %>
+
+							<div class="post-types">
+
+								<label class="filebutton">
+									<%= image_tag("camera-icon.png") %>
+									<span><%= file_field_tag :post, :class => "upload", :accept => ".png,.jpg,.gif,.bmp" %></span>
+								</label>
+								<label class="filebutton">
+									<%= image_tag("video-icon.png")  %>
+									<span><%= file_field_tag :post, :class => "upload", :accept => ".mp4,.wav,.avi,.mov"%></span>
+								</label>
+
+								<div>
+									<label style="padding:25px;">PHOTO</label>
+									<label style="padding:25px;">VIDEO</label>
+								</div>
+								<label id="filename" style="padding:5px; font-size:12px; color:gray;"></label>
+
+							</div>
+
+		        			<div class="hidden-input" style="visibility:hidden;">
+								<label>TITLE:</label>
+								<%= text_field_tag 'title', nil, placeholder: 'Title' %>
+								<span id="error"></span>
+								<%= submit_tag "UPLOAD", :id => "sub", :style => "padding:0px;"%>
+								<br>
+							</div>
+	
+							<div class="submit" style="visibility:hidden;">
+								<li><%= image_tag("checkmark.png") %></li>
+								<label>SUBMITTED!</label>
+							</div>
+	        				
+	        			<% end %>
+
 				</div>
 		</div>
 	<% end %>
 	<!--end footer-->
+
+	<div id="viewModal" class="viewDialog">
+		<div>
+			<a href = "#close" title = "Close" class = "close"> x </a>
+			<h3 style="position:absolute;">
+				<%if @curr_post.present?%>
+					<%= @curr_post.title %>
+				<% end %>
+			</h3>
+			<%=image_tag ("facebook-share-button.png"), {:class => "user-small pull-right"} %>
+			
+			<div class="media-box">
+				<%if @curr_post %>
+					<%if @curr_post.mtype.start_with?('image') %>
+						<img src="<%= @curr_post.dir %>" width="340" height="340" />
+					<% else %>
+						<video width="340" height="340" controls>
+						  <source src="<%= @curr_post.dir %>" type="<%= @curr_post.type %>" />
+						</video>
+					<% end %>
+					
+				<% end %>
+			</div>
+
+			<div class="user-info-box">
+				<%=image_tag ("2.PNG"), {:class => "user-small"} %>
+				<label>[USERNAME]</label>
+			</div>
+
+			<div class="comment-box">
+				<!--NEW USER COMMENT-->
+				Comments
+				<div class="user-comments">
+					<%=image_tag ("2.PNG"), {:class => "user-small"} %>
+					<div class="comment">WHATEVER COMMENT THE USER HAS INPUT. Trying a longer version. :)</div>
+				</div>
+
+				<div class="user-comments">
+					<%=image_tag ("4.PNG"), {:class => "user-small"} %>
+					<div class="comment">WHATEVER COMMENT THE USER HAS INPUT. Trying a longer version. :)</div>
+				</div>
+
+				<div class="user-comments">
+					<%=image_tag ("6.PNG"), {:class => "user-small"} %>
+					<div class="comment">WHATEVER COMMENT THE USER HAS INPUT. Trying a longer version. :)</div>
+				</div>
+			</div>
+
+			<div class="add-comment">
+				<input type= "text" value="Leave a comment..."
+				onfocus="(this.value == 'Leave a comment...') && (this.value = '')"
+					onblur="(this.value == '') && (this.value = 'Leave a comment...')" >
+					<%=image_tag ("thumb12.png"), {:class => "like pull-right"} %>
+			</div>
+		</div>
+	</div>
 </body>
 </html>

@@ -44,29 +44,36 @@
 					<div class="pull-left">
 					<label>LOGIN</label>
 					<br><br>
-					<%= form_tag('/login', method: :post) do %>
-						<input type="text" id="lusername" name="username" placeholder="Username" >
+					<%= form_tag('/login', :multipart => true, :id => "loginform") do %>
+						<input type="text" name="username" placeholder="Username" >
 	       				<br>
 	       				<input id="lpassword" style="margin-top: 20px;" type="password" name="password" placeholder="******" >
-	       				<br><br><br>
-	       				<input name="submit" type="submit" value="LOGIN" id="login"style="padding:6px">
+	       				<br><br>
+
+	       				<span id="error1" style="margin-left:125px;"></span><br>
+
+	       				<input name="submit" type="submit" value="LOGIN" id="log"style="padding:6px">
 	       			<% end %>
 					</div>
 
 					<div class="register-input vertical-border">
 					<label>REGISTER</label>
 					<br><br>
-					<%= form_tag('/register', :multipart => true) do %>
+					<%= form_tag('/register', :multipart => true, :id => "registerform") do %>
 						<input type="text" id="rfname" name="fname" placeholder="First Name">
+
 	       				<input type="text" id="rlname" name="lname" placeholder="Last Name">
-						<input type="text" style="margin-top: 20px;" name="username" placeholder="Username">
-	       				<br>
+
+						<input id="rusername" type="text" style="margin-top: 20px;" name="username" placeholder="Username"><br>
+
 	       				<input id="rpassword" style="margin-top: 20px;" type="password" name="password" placeholder="******">
 
 	       				<input id="confpass" style="margin-top: 20px;" type="password" name="passwor_confirm" placeholder="******">
-	       				<br><br><br>
+	       				<br><br>
 
-	       				<input name="submit" id="register" style="margin-left:450px;" value="REGISTER" >
+	       				<span id="error2" style="margin-left:427px;"></span><br>
+
+	       				<input type="submit" name="submit" id="register" style="margin-left:500px; padding:6px;" value="REGISTER" >
 	       			<% end %>
 					</div>
 				</div>
