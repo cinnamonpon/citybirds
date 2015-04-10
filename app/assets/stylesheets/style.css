@@ -87,6 +87,14 @@ li a:hover, a:hover{
 	border-radius: 100px;
 }
 
+.user-small{
+	width: 40px;
+	height: 40px;
+	border-radius: 100px;
+	margin-left: 20px;
+	margin-top: 5px;
+}
+
 .user-badge .name{
 	width: 200px;
 	height: 90px;
@@ -571,7 +579,17 @@ span{
 	margin-top: 50px;
 }
 
-.modalDialog {
+.viewDialog > div {
+	width: 700px;
+	height: 400px;
+	position: relative;
+	margin: 15% auto;
+	padding: 5px 20px 30px 20px;
+	border-radius: 10px;
+	background: #f7f7f7;
+}
+
+.modalDialog, .viewDialog {
   position: fixed;
   font-family: 'Roboto';
   top: 0;
@@ -587,7 +605,7 @@ span{
   pointer-events: none;
 }
 
-.modalDialog:target {
+.modalDialog:target, .viewDialog:target {
 	opacity:1;
 	pointer-events: auto;
 }
@@ -698,3 +716,88 @@ span{
 }
 
 .submit img:hover{ width: 20px; height: 20px;}
+
+.media-box{
+	background-color: blue;
+	width: 340px;
+	height: 340px;
+	position: absolute;
+}
+
+.user-info-box{
+	width: 350px;
+	height: 50px;
+	background-color: transparent;
+	float: right;
+}
+
+.user-info-box label{
+	padding-left: 0px;
+
+}
+.comment-box{
+	width: 350px;
+	height: 250px;
+	background-color: transparent;
+	float: right;
+	margin-left: 300px;
+	overflow-y: scroll;
+}
+
+.add-comment{
+	width: 350px;
+	height:40px;
+	background-color: transparent;
+	float: right;
+	margin-left: 300px;
+}
+
+.add-comment input{
+	width:270px;
+	height: 34px;
+	font-size: 14px;
+	padding-left: 20px;
+}
+
+.like{
+	margin: 0px;
+	width: 40px;
+	height: 40px;
+}
+
+.like:hover{
+	cursor: pointer;
+}
+
+.user-comments{
+	width:330px;
+	height: 50px;
+	background-color: transparent;
+}
+.comment{
+	font-size: 12px;
+	float: right;
+	width: 250px;
+	margin-top: 10px;
+	margin-right:6px;
+}
+
+::-webkit-scrollbar {
+      width: 15px;
+}
+
+::-webkit-scrollbar-track {
+      background-color: #bdb6b6;
+} /* the new scrollbar will have a flat appearance with the set background color */
+ 
+::-webkit-scrollbar-thumb {
+      background-color: rgba(0, 0, 0, 0.2); 
+} /* this will style the thumb, ignoring the track */
+ 
+::-webkit-scrollbar-button {
+      background-color: white;
+} /* optionally, you can style the top and the bottom buttons (left and right for horizontal bars) */
+ 
+::-webkit-scrollbar-corner {
+      background-color: black;
+} /* if both the vertical and the horizontal bars appear, then perhaps
