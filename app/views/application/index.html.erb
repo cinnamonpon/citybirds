@@ -67,6 +67,7 @@
 					    <div class="middleDIV tv"></div>
 					    <div class="rightDIV tv"></div>
 					</div>
+					<div id="triangle-down"></div>
 				</div>
 			</div>
 			<a name="New"></a>
@@ -83,6 +84,7 @@
 					    <div style="background:#FFCC33;" class="middleDIV tv"></div>
 					    <div style="background:#FFCC33;" class="rightDIV tv"></div>
 					</div>
+					<div id="triangle-down"></div>
 				</div>
 			</div>
 			<a name="Discover"></a>
@@ -95,7 +97,7 @@
 					<div class="banner-text" style="margin-left:650px;">COMMUNITY</div>
 					<!--POSTS-->
 					<div class="mainDIV">
-					    <div style="background:red;"class="leftDIV">
+					    <div style="background:none;"class="leftDIV">
 					    <%=image_tag ("2.PNG"), {:class => "user-badge"} %>
 					    	<div class="name"></div>
 						</div>
@@ -108,19 +110,53 @@
 					    	<div class="name"></div>
 					    </div>
 					</div>
+					<div id="triangle-down"></div>
 				</div>
 			</div>
 		</div>
 	</div>
 
+
+
 	<!--FOOTER-->
-	<div class="sticky-controls">
-			<div class="wrap">
-				<div class="controls pull-left">
-					<li><%= image_tag("addition6.png") %></li>
+
+		<div class="sticky-controls">
+				<div class="wrap">
+					<div class="controls pull-left">
+						<li><%= link_to image_tag("addition6.png"), "#openModal" %></li>
+					</div>
 				</div>
-			</div>
+
+				<div id="openModal" class="modalDialog">
+					<div>
+						<a href = "#close" title = "Close" class = "close"> x </a>
+						<h3>Upload New Post</h3>
+						<div class="post-types">
+							<div>
+								<li><%= link_to image_tag("camera-icon.png") %></li>
+								<li><%= link_to image_tag("video-icon.png") %></li>
+							</div>
+							<div>
+								<label style="padding-left:15px;">PHOTO</label>
+								<label style="padding-left:20px;">VIDEO</label>
+							</div>
+						</div>
+
+						<div class="hidden-input">
+							<label>TITLE:</label>
+							<input type="text">
+							<button>SUBMIT</button>
+							<br>
+						</div>
+
+						<div class="submit">
+							<li><%= link_to image_tag("checkmark.png") %></li>
+							<label>SUBMMITED!</label>
+						</div>
+					</div>
+				</div>
 		</div>
 	<!--end footer-->
+
 </body>
 </html>

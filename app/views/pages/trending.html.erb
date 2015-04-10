@@ -82,12 +82,33 @@
 		</div>
 	</div>
 
-	<div class="sticky-controls">
-			<div class="wrap">
-				<div class="controls pull-left">
-					<li><img src="images/addition6.png"></li>
+	<!--FOOTER-->
+	<% if session[:user_id] %>
+		<div class="sticky-controls">
+				<div class="wrap">
+					<div class="controls pull-left">
+						<li><%= link_to image_tag("addition6.png"), "#openModal" %></li>
+					</div>
 				</div>
-			</div>
-	</div>
+
+				<div id="openModal" class="modalDialog">
+					<div>
+						<a href = "#close" title = "Close" class = "close"> x </a>
+						<h4>Upload</h4>
+
+						<input id="uploadFile" placeholder="No File Chosen" disabled="disabled" />
+						<div class="fileUpload btn btn-primary">
+							<%= form_tag('/login', :multipart => true) do %>
+								<button id="submit">Choose File</button>
+		        				<%= file_field_tag :post, :class => "upload" %>
+		        				<%= submit_tag "Upload", :id => "submit" %>
+		        			<% end %>
+		        		</div>
+					</div>
+				</div>
+		</div>
+	<% end %>
+	<!--end footer-->
+
 </body>
 </html>
