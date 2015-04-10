@@ -718,10 +718,11 @@ span{
 .submit img:hover{ width: 20px; height: 20px;}
 
 .media-box{
-	background-color: blue;
+	background-color: transparent;
 	width: 340px;
 	height: 340px;
 	position: absolute;
+	margin-top: 60px;
 }
 
 .user-info-box{
@@ -729,6 +730,8 @@ span{
 	height: 50px;
 	background-color: transparent;
 	float: right;
+	margin-top: 15px;
+	margin-left: 390px;
 }
 
 .user-info-box label{
