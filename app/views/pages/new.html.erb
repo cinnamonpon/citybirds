@@ -91,7 +91,7 @@
 	</div>
 
 	<!--FOOTER-->
-	<% if session[:user_id] %>
+
 		<div class="sticky-controls">
 				<div class="wrap">
 					<div class="controls pull-left">
@@ -102,19 +102,32 @@
 				<div id="openModal" class="modalDialog">
 					<div>
 						<a href = "#close" title = "Close" class = "close"> x </a>
-						<h4>Upload</h4>
+						<h3>Upload New Post</h3>
+						<div class="post-types">
+							<div>
+								<li><%= link_to image_tag("camera-icon.png") %></li>
+								<li><%= link_to image_tag("video-icon.png") %></li>
+							</div>
+							<div>
+								<label style="padding-left:15px;">PHOTO</label>
+								<label style="padding-left:20px;">VIDEO</label>
+							</div>
+						</div>
 
-						<input id="uploadFile" placeholder="No File Chosen" disabled="disabled" />
-						<div class="fileUpload btn btn-primary">
-							<%= form_tag('/login', :multipart => true) do %>
-								<button id="submit">Choose File</button>
-		        				<%= file_field_tag :post, :class => "upload" %>
-		        				<%= submit_tag "Upload", :id => "submit" %>
-		        			<% end %>
-		        		</div>
+						<div class="hidden-input">
+							<label>TITLE:</label>
+							<input type="text">
+							<button>SUBMIT</button>
+							<br>
+						</div>
+
+						<div class="submit">
+							<li><%= link_to image_tag("checkmark.png") %></li>
+							<label>SUBMMITED!</label>
+						</div>
 					</div>
 				</div>
 		</div>
-	<% end %>
+	<!--end footer-->
 </body>
 </html>
