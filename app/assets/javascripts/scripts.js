@@ -69,3 +69,12 @@ function nameBlur(e) {
   nameElement.attachEvent("onfocus", nameFocus);
   nameElement.attachEvent("onblur", nameBlur);
 }*/
+    function do_form(id)
+    {
+      document.getElementById(id).submit();
+    }
+
+function newPopup(url) {
+    popupWindow = window.open(
+        url,'popUpWindow','height=500,width=500,left=10,top=10,resizable=yes,scrollbars=yes,toolbar=yes,menubar=no,location=no,directories=no,status=yes')
+}

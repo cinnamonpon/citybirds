@@ -3,8 +3,10 @@ class ApplicationController < ActionController::Base
   # For APIs, you may want to use :null_session instead.
 
   def index
-  	 @curr_user = User.where(id: session[:user_id]).first
-  	 @curr_post = Post.where(id: session[:post_id]).first
+  	@curr_user = User.where(id: session[:user_id]).first
+  	@curr_post = Post.where(id: session[:post_id]).first
+  	@trends = Post.get_trends()
+    @new_posts = Post.get_recent()
   end
 
   def upload

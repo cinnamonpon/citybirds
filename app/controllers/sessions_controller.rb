@@ -26,8 +26,10 @@ class SessionsController < ApplicationController
 		user = User.create_user(params[:username], params[:fname], params[:lname], params[:password], params[:confirm_password])
 
 		if user
-			session[:user_id] = User.authenticate(params[:username], params[:password]).user_id
+			session[:user_id] = User.authenticate(params[:username], params[:password]).id
 			redirect_to '/index'
+		else
+			redirect_to action: :login_page
 		end
 	end
 

@@ -27,7 +27,7 @@
 		<div class="nav headroom">
 			<div class="container">
 				<div class="nav-collapse">
-					<d\iv class="logo navbar-nav pull-left">City Birds Logo</div>
+					<div class="logo navbar-nav pull-left">City Birds</div>
 					<ul class="navbar-nav pull-right">
 						<li class="active"><a href="index.html">Home</a></li>
 						<li><a href="#Trending">Trending</a></li>
@@ -63,11 +63,23 @@
 					<div class="banner-text" style="margin-left:740px;">TRENDING</div>
 					<!--POSTS-->
 					<div class="mainDIV">
-					    <div class="leftDIV tv"></div>
-					    <div class="middleDIV tv"></div>
-					    <div class="rightDIV tv"></div>
+					    <div class="leftDIV">
+					    <% if @trends[0] %>
+					    	<img src = "<%= @trends[0].dir %>" height = "200" width = "200"/>
+					    <% end %>
+					    </div>
+					    <div class="middleDIV">
+					    <% if @trends[1] %>
+					    	<img src = "<%= @trends[1].dir %>" height = "200" width = "200"/>
+					    <% end %>
+					    </div>
+					    <div class="rightDIV">
+					    <% if @trends[2] %>
+					    	<img src = "<%= @trends[2].dir %>" height = "200" width = "200"/>
+					    <% end %>
+					    </div>
 					</div>
-					<div id="triangle-down"></div>
+					<a href="/trending" ><div id="triangle-down"></div></a>
 				</div>
 			</div>
 			<a name="New"></a>
@@ -80,11 +92,23 @@
 					<div class="banner-text" style="margin-left:755px; font-size:60px; margin-top:70px;">WHAT'S NEW</div>
 					<!--POSTS-->
 					<div class="mainDIV">
-					    <div style="background:#FFCC33;"class="leftDIV tv"></div>
-					    <div style="background:#FFCC33;" class="middleDIV tv"></div>
-					    <div style="background:#FFCC33;" class="rightDIV tv"></div>
+					    <div style="background:#FFCC33;"class="leftDIV">
+					    <% if @new_posts[0] %>
+					    	<img src = "<%= @new_posts[0].dir %>" height = "200" width = "200"/>
+					   	<% end %>
+					    </div>
+					    <div style="background:#FFCC33;" class="middleDIV">
+					    <% if @new_posts[1] %>
+					    	<img src = "<%= @new_posts[1].dir %>" height = "200" width = "200"/>
+					   	<% end %>	
+					    </div>
+					    <div style="background:#FFCC33;" class="rightDIV">
+					    <% if @new_posts[2] %>
+					    	<img src = "<%= @new_posts[2].dir %>" height = "200" width = "200"/>
+					   	<% end %>
+					    </div>
 					</div>
-					<div id="triangle-down"></div>
+					<a href="/new" ><div id="triangle-down"></div></a>
 				</div>
 			</div>
 			<a name="Discover"></a>
@@ -101,16 +125,16 @@
 					    <%=image_tag ("2.PNG"), {:class => "user-badge"} %>
 					    	<div class="name"></div>
 						</div>
-					    <div style="background:none;" class="middleDIV tv">
+					    <div style="background:red;" class="middleDIV">
 					    <%=image_tag ("4.PNG"), {:class => "user-badge"} %>
 					    	<div class="name"></div>
 					    </div>
-					    <div style="background:none;" class="rightDIV tv">
+					    <div style="background:red;" class="rightDIV">
 					    <%=image_tag ("6.PNG"), {:class => "user-badge"} %>
 					    	<div class="name"></div>
 					    </div>
 					</div>
-					<div id="triangle-down"></div>
+					<a href="/discover"> <div id="triangle-down"></div></a>
 				</div>
 			</div>
 		</div>
@@ -179,7 +203,7 @@
 					<%= @curr_post.title %>
 				<% end %>
 			</h3>
-			<%=image_tag ("facebook-share-button.png"), {:class => "user-small pull-right"} %>
+			<a href="JavaScript:newPopup('http://www.facebook.com/sharer/sharer.php?u=<%=request.original_url + '#viewModal'%>');"><%= image_tag ("facebook-share-button.png"), {:class => "user-small pull-right"} %></a>
 			
 			<div class="media-box">
 				<%if @curr_post %>

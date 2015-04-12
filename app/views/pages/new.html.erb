@@ -29,7 +29,7 @@
 		<div class="nav headroom">
 			<div class="container">
 				<div class="nav-collapse">
-					<div class="logo navbar-nav pull-left">City Birds Logo</div>
+					<div class="logo navbar-nav pull-left">City Birds</div>
 					<ul class="navbar-nav pull-right">
 						<li><a href="index.html">Home</a></li>
 						<li><a href="trending.html">Trending</a></li>
@@ -42,46 +42,19 @@
 	</div>
 	<!--HEADER END-->
 	<div>
-		<div class="container">
-				<div class="block"style="top:150px; left:450px;">
-					<p>
-						Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut in dui velit. Curabitur purus odio, adipiscing ut vehicula at, pulvinar eu justo. Suspendisse potenti. Suspendisse dictum massa non mi posuere ac convallis 
-					</p>
-					<div>
-						<img src="images/star138.png">
-						<img src="images/thumb52.png">
-					</div>
-				</div>
-				<div class="block" style="top:440px; left:450px;">
-					<p>
-						Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut in dui velit. Curabitur purus odio, adipiscing ut vehicula at, pulvinar eu justo. Suspendisse potenti. Suspendisse dictum massa non mi posuere ac convallis 
-					</p>
-					<div>
-						<img src="images/star138.png">
-						<img src="images/thumb12.png">
-					</div>
-				</div>
-				<div class="block" style="top:150px; left:820px;">
-					<p>
-						Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut in dui velit. Curabitur purus odio, adipiscing ut vehicula at, pulvinar eu justo. Suspendisse potenti. Suspendisse dictum massa non mi posuere ac convallis nisi pellentesque. Morbi posuere mauris elementum metus intlla faProin et malesuada arcu. Quisque sed nulla odio, at interdum diam. Proin mollis, dui eget tristique dictum, diam purus hendrerit urna, lacinia interdum sem justo sit amet justo. Morbi a neque ut velit tempus auctor. Sed condimentum dolor in est facilisis id malesuad
-					</p>
-					<div>
-						<img src="images/star138.png">
-						<img src="images/thumb12.png">
-					</div>
-				</div>
-				<div class="block" style="top:730px; left:450px;">
-					<p>
-						Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut in dui velit. Curabitur purus odio, adipiscing ut vehicula at, pulvinar eu justo. Suspendisse potenti. Suspendisse dictum massa non mi posuere ac convallis 
-					</p>
-					<div>
-						<img src="images/star138.png">
-						<img src="images/thumb12.png">
-					</div>
-				</div>
+		<div>
+		<div class="userdiv">
+			<% @all_posts.each do |p| %>
+	            <div class="columndiv"><div class="post">
+	            	<%= form_tag('/view_post', method: :post, :id => p.id) do %>
+						<%= hidden_field_tag 'id', p.id %>
+						<img src="<%= p.dir %>" width="200" height="200" onclick="do_form(<%= p.id %>)"/>
+						<label class="title"><%= p.title %><label>
+					<% end %>
+	            </div></div>	
+			<% end %>
 		</div>
 	</div>
-
 	<!--FOOTER-->
 	<% if session[:user_id] %>
 		<div class="sticky-controls">
@@ -145,7 +118,7 @@
 					<%= @curr_post.title %>
 				<% end %>
 			</h3>
-			<%=image_tag ("facebook-share-button.png"), {:class => "user-small pull-right"} %>
+			<a href="JavaScript:newPopup('http://www.facebook.com/sharer/sharer.php?u=<%=request.original_url + '#viewModal'%>');"><%= image_tag ("facebook-share-button.png"), {:class => "user-small pull-right"} %></a>
 			
 			<div class="media-box">
 				<%if @curr_post %>

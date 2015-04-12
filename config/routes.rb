@@ -3,13 +3,13 @@ Rails.application.routes.draw do
   get 'index' => 'application#index'
   get 'login' =>  'sessions#login_page'
   post 'login' => 'sessions#login'
-  get 'register' => 'sessions#register_page'
   post 'register' => 'sessions#register'
   get 'logout' => 'sessions#logout'
   get 'new' => 'pages#new'
   get 'trending' => 'pages#trending'
   get 'discover' => 'pages#discover'
   post 'upload' => 'application#upload'
+  post 'view_post' => 'pages#view_post'
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

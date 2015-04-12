@@ -21,7 +21,7 @@
 		<div class="nav headroom">
 			<div class="container">
 				<div class="nav-collapse">
-					<div class="logo navbar-nav pull-left"><%= link_to "City Birds Logo", index_path %></div>
+					<div class="logo navbar-nav pull-left"><%= link_to "City Birds", index_path %></div>
 					<ul class="navbar-nav pull-right">
 						<li><a href="index.html">Home</a></li>
 						<li><a href="trending.html">Trending</a></li>
@@ -59,7 +59,7 @@
 					<div class="register-input vertical-border">
 					<label>REGISTER</label>
 					<br><br>
-					<%= form_tag('/register', :multipart => true, :id => "registerform") do %>
+					<%= form_tag('/register', method: :post, :id => "registerform") do %>
 						<input type="text" id="rfname" name="fname" placeholder="First Name">
 
 	       				<input type="text" id="rlname" name="lname" placeholder="Last Name">
@@ -68,7 +68,7 @@
 
 	       				<input id="rpassword" style="margin-top: 20px;" type="password" name="password" placeholder="******">
 
-	       				<input id="confpass" style="margin-top: 20px;" type="password" name="passwor_confirm" placeholder="******">
+	       				<input id="confpass" style="margin-top: 20px;" type="password" name="confirm_password" placeholder="******">
 	       				<br><br>
 
 	       				<span id="error2" style="margin-left:427px;"></span><br>
