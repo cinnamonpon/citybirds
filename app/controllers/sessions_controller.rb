@@ -12,7 +12,7 @@ class SessionsController < ApplicationController
 			session[:user_id] = user.id
 			redirect_to '/index'
 		else
-			redirect_to action: :login_page
+			puts 'test'
 		end
 	end
 

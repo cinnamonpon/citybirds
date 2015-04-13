@@ -28,7 +28,7 @@ $(document).ready(function(){
         $("#loginform input").each(function() {
             if(!isNaN(this.value)) {
                 event.preventDefault();
-                this.style.color ="red";
+                this.style.border = "1px solid red";
                 $("#error1").html("Please fill out the required fields."); 
             }
         });
@@ -39,7 +39,7 @@ $(document).ready(function(){
         $("#registerform input").each(function() {
             if(!isNaN(this.value)) {
                 event.preventDefault();
-                this.style.color ="red";
+                this.style.border = "1px solid red";
                 $("#error2").html("Please fill out the required fields."); 
             }
         });

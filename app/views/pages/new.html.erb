@@ -20,9 +20,7 @@
 				</ul>
 			<% else %>
 				<ul>
-					<li><%= link_to "Log In", login_path %></li>
-					<li style="padding: 5px 2px;">|</li>
-					<li><%= link_to "Register", register_path %></li>
+					<li><%= link_to "Log In | Register", login_path %></li>
 				</ul>
 			<% end %>
 		</div>
@@ -34,7 +32,7 @@
 						<li><a href="index.html">Home</a></li>
 						<li><a href="trending.html">Trending</a></li>
 						<li class="active"><a href="new.html">What's New</a></li>
-						<li><a href="discover.html">Discover</a></li>
+						<li><a href="discover.html">Community</a></li>
 					</ul>
 				</div>
 			</div>
@@ -45,16 +43,23 @@
 		<div>
 		<div class="userdiv">
 			<% @all_posts.each do |p| %>
-	            <div class="columndiv"><div class="post">
+	            <div class="columndiv"><div class="post" onclick="do_form(<%= p.id %>)">
 	            	<%= form_tag('/view_post', method: :post, :id => p.id) do %>
 						<%= hidden_field_tag 'id', p.id %>
-						<img src="<%= p.dir %>" width="200" height="200" onclick="do_form(<%= p.id %>)"/>
+						<%if p.mtype.start_with?('image') %>
+							<%= image_tag(p.dir,  size: "200x200") %>
+						<% else %>
+							<%= video_tag(p.dir, size: "200x200", autoplay: "autoplay", loop: "loop") %>
+							
+						<% end %>
+						
 						<label class="title"><%= p.title %><label>
 					<% end %>
 	            </div></div>	
 			<% end %>
 		</div>
 	</div>
+
 	<!--FOOTER-->
 	<% if session[:user_id] %>
 		<div class="sticky-controls">
@@ -123,11 +128,9 @@
 			<div class="media-box">
 				<%if @curr_post %>
 					<%if @curr_post.mtype.start_with?('image') %>
-						<img src="<%= @curr_post.dir %>" width="340" height="340" />
+						<%= image_tag(@curr_post.dir,  size: "340x340") %>
 					<% else %>
-						<video width="340" height="340" controls>
-						  <source src="<%= @curr_post.dir %>" type="<%= @curr_post.type %>" />
-						</video>
+							<%= video_tag(@curr_post.dir, size: "340x340", autoplay: "autoplay", loop: "loop") %>
 					<% end %>
 					
 				<% end %>
@@ -135,7 +138,11 @@
 
 			<div class="user-info-box">
 				<%=image_tag ("2.PNG"), {:class => "user-small"} %>
-				<label>[USERNAME]</label>
+				<label>
+					<% if @curr_user %>
+						<%= @curr_user.fname %>
+					<% end %>
+				</label>
 			</div>
 
 			<div class="comment-box">

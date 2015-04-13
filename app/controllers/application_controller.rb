@@ -17,18 +17,22 @@ class ApplicationController < ActionController::Base
 
 		if extension.start_with?('png') || extension.start_with?('jpg') || extension.start_with?('gif') ||extension.start_with?('bmp') 
 			mtype = "image/" + extension
+			directory = "app/assets/images/uploads"
 		else
 			mtype = "video/" + extension
+			directory = "public/videos/uploads"
 		end
 
-		directory = "app/assets/uploads"
+		
 		path = File.join(directory, post);
 
 		File.open(path, 'wb') { |f| f. write(params[:post].read) }
 		new_post = Post.create_post(title, user_id, path, 'uploads/'+post, mtype)
 
-		session[:post_id] = new_post.id
-		redirect_to '#viewModal'
+		ref = request.referer
+		to_path = ref[ref.rindex('/')..ref.length]
+		redirect_to to_path+'#viewModal'
+		
 	end
 
 

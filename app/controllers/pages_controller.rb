@@ -14,6 +14,7 @@ class PagesController < ApplicationController
 
 	def discover
 		@curr_user = User.where(id: session[:user_id]).first
+		@all_users = User.get_all(session[:user_id])
 	end
 
 	def view_post 

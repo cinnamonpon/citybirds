@@ -659,6 +659,7 @@ span{
     border: 1px solid #ddd;
     color: black;
     font-family: 'Roboto';
+    cursor: hand;
 }
 
 .post-types{

@@ -65,17 +65,29 @@
 					<div class="mainDIV">
 					    <div class="leftDIV">
 					    <% if @trends[0] %>
-					    	<img src = "<%= @trends[0].dir %>" height = "200" width = "200"/>
+					    	<%if @trends[0].mtype.start_with?('image') %>
+								<%= image_tag(@trends[0].dir,  size: "200x200") %>
+							<% else %>
+								<%= video_tag(@trends[0], size: "200x200", autoplay: "autoplay", loop: "loop") %>
+							<% end %>
 					    <% end %>
 					    </div>
 					    <div class="middleDIV">
 					    <% if @trends[1] %>
-					    	<img src = "<%= @trends[1].dir %>" height = "200" width = "200"/>
+					    	<%if @trends[1].mtype.start_with?('image') %>
+								<%= image_tag(@trends[1].dir,  size: "200x200") %>
+							<% else %>
+								<%= video_tag(@trends[1].dir, size: "200x200", autoplay: "autoplay", loop: "loop") %>
+							<% end %>
 					    <% end %>
 					    </div>
 					    <div class="rightDIV">
 					    <% if @trends[2] %>
-					    	<img src = "<%= @trends[2].dir %>" height = "200" width = "200"/>
+					    	<%if @trends[2].mtype.start_with?('image') %>
+								<%= image_tag(@trends[2].dir,  size: "200x200") %>
+							<% else %>
+								<%= video_tag(@trends[2], size: "200x200", autoplay: "autoplay", loop: "loop") %>
+							<% end %>
 					    <% end %>
 					    </div>
 					</div>
@@ -94,17 +106,29 @@
 					<div class="mainDIV">
 					    <div style="background:#FFCC33;"class="leftDIV">
 					    <% if @new_posts[0] %>
-					    	<img src = "<%= @new_posts[0].dir %>" height = "200" width = "200"/>
+						    <%if @new_posts[0].mtype.start_with?('image') %>
+								<%= image_tag(@new_posts[0].dir,  size: "200x200") %>
+							<% else %>
+								<%= video_tag(@new_posts[0], size: "200x200", autoplay: "autoplay", loop: "loop") %>
+							<% end %>
 					   	<% end %>
 					    </div>
 					    <div style="background:#FFCC33;" class="middleDIV">
 					    <% if @new_posts[1] %>
-					    	<img src = "<%= @new_posts[1].dir %>" height = "200" width = "200"/>
+					    	<%if @new_posts[1].mtype.start_with?('image') %>
+								<%= image_tag(@new_posts[1].dir,  size: "200x200") %>
+							<% else %>
+								<%= video_tag(@new_posts[1], size: "200x200", autoplay: "autoplay", loop: "loop") %>
+							<% end %>
 					   	<% end %>	
 					    </div>
 					    <div style="background:#FFCC33;" class="rightDIV">
 					    <% if @new_posts[2] %>
-					    	<img src = "<%= @new_posts[2].dir %>" height = "200" width = "200"/>
+					    	<%if @new_posts[0].mtype.start_with?('image') %>
+								<%= image_tag(@new_posts[3].dir,  size: "200x200") %>
+							<% else %>
+								<%= video_tag(@new_posts[3], size: "200x200", autoplay: "autoplay", loop: "loop") %>
+							<% end %>
 					   	<% end %>
 					    </div>
 					</div>
@@ -208,11 +232,9 @@
 			<div class="media-box">
 				<%if @curr_post %>
 					<%if @curr_post.mtype.start_with?('image') %>
-						<img src="<%= @curr_post.dir %>" width="340" height="340" />
+						<%= image_tag(@curr_post.dir,  size: "340x340") %>
 					<% else %>
-						<video width="340" height="340" controls>
-						  <source src="<%= @curr_post.dir %>" type="<%= @curr_post.type %>" />
-						</video>
+							<%= video_tag(@curr_post.dir, size: "340x340", autoplay: "autoplay", loop: "loop") %>
 					<% end %>
 					
 				<% end %>
@@ -220,7 +242,11 @@
 
 			<div class="user-info-box">
 				<%=image_tag ("2.PNG"), {:class => "user-small"} %>
-				<label>[USERNAME]</label>
+				<label>
+					<% if @curr_user %>
+						<%= @curr_user.fname %>
+					<% end %>
+				</label>
 			</div>
 
 			<div class="comment-box">

@@ -18,6 +18,11 @@ class User < ActiveRecord::Base
 		else
 			nil
 		end
+	
+	end
+
+	def self.get_all(user_id)
+		users = User.where.not(id: user_id).to_a
 	end
 	
 end
