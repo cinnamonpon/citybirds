@@ -3,13 +3,15 @@ class PagesController < ApplicationController
 	def trending
 		@all_posts = Post.get_trends()
 		@curr_user = User.where(id: session[:user_id]).first
-	    @curr_post = Post.where(id: session[:post_id]).first	
+	    @curr_post = Post.where(id: session[:post_id]).first
+	    @all_comments = Comment.all_comments(session[:poster_id], session[:post_id])	
 	end
 
 	def new
 		@all_posts = Post.get_recent()
 		@curr_user = User.where(id: session[:user_id]).first
   	 	@curr_post = Post.where(id: session[:post_id]).first
+  	 	@all_comments = Comment.all_comments(session[:poster_id], session[:post_id])
 	end
 
 	def discover

@@ -44,12 +44,6 @@ $(document).ready(function(){
             }
         });
     });
-
-    $("#comment_field").keyup(function(event){
-        if(event.keyCode == 13){
-            document.getElementById("submit_comment").submit();
-        }
-    });
 });
 
 
@@ -78,6 +72,12 @@ function nameBlur(e) {
     {
       document.getElementById(id).submit();
     }
+
+$("#comment_field").keyup(function(event){
+    if(event.keyCode == 13){
+        document.getElementById("submit_comment").submit();
+    }
+});
 
 function newPopup(url) {
     popupWindow = window.open(

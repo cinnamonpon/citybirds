@@ -11,7 +11,7 @@ Rails.application.routes.draw do
   post 'upload' => 'application#upload'
   post 'view_post' => 'pages#view_post'
   post 'post_comment' => 'pages#post_comment'
-  post 'like_post' => 'pages#like_post'
+  get 'like_post' => 'pages#like_post'
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

@@ -150,7 +150,7 @@
 					<% @all_comments.each do |i| %>
 					<div class="user-comments">
 						<%=image_tag ("2.PNG"), {:class => "user-small"} %>
-						<div class="comment"><%= i.message %></div>
+						<div class="comment"><strong><%= User.where(id: i.comment_user).first.fname %></strong>: <%= i.message %></div>
 					</div>
 					<% end %>
 				<% else %>
@@ -171,14 +171,11 @@
 							onblur="(this.value == '') && (this.value = 'Leave a comment...')" >
 					<% end %>
 					<% if Like.check_like(session[:user_id], session[:post_id]) %>
-						<%=image_tag ("thumb52.png"), {:class => "like pull-right"} %>
+						<%= image_tag ("thumb52.png"), {:class => "like pull-right"} %>
 					<% else %>
-						<% form_tag('/like_post', method: :post, :id => "like_post")  do %>
-							<%= hidden_field_tag 'id', "like_post" %>
-								<div class="like pull-right" onclick="do_form(like_post)">
-									<%= image_tag ("thumb12.png"), {:class => "like pull-right"} %>
-								</div>
-						<% end %>
+							<a href="/like_post" id="like">
+								<%= image_tag ("thumb12.png"), {:class => "like pull-right"} %>
+							</a>
 					<% end %>
 				<% end %>
 			</div>

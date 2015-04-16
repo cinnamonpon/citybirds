@@ -145,20 +145,19 @@
 			<div class="comment-box">
 				<!--NEW USER COMMENT-->
 				Comments
-				<div class="user-comments">
-					<%=image_tag ("2.PNG"), {:class => "user-small"} %>
-					<div class="comment">WHATEVER COMMENT THE USER HAS INPUT. Trying a longer version. :)</div>
-				</div>
-
-				<div class="user-comments">
-					<%=image_tag ("4.PNG"), {:class => "user-small"} %>
-					<div class="comment">WHATEVER COMMENT THE USER HAS INPUT. Trying a longer version. :)</div>
-				</div>
-
-				<div class="user-comments">
-					<%=image_tag ("6.PNG"), {:class => "user-small"} %>
-					<div class="comment">WHATEVER COMMENT THE USER HAS INPUT. Trying a longer version. :)</div>
-				</div>
+				<% if @all_comments %>
+					<% @all_comments.each do |i| %>
+					<div class="user-comments">
+						<%=image_tag ("2.PNG"), {:class => "user-small"} %>
+						<div class="comment"><strong><%= User.where(id: i.comment_user).first.fname %></strong>: <%= i.message %></div>
+					</div>
+					<% end %>
+				<% else %>
+					<div class="user-comments">
+						<%=image_tag ("2.PNG"), {:class => "user-small"} %>
+						<div class="comment">Comment.all_comments( <%= session[:poster_id] %> , <%= session[:post_id] %>)</div>
+					</div>
+				<% end %>
 			</div>
 
 			<div class="add-comment">
@@ -170,14 +169,11 @@
 							onblur="(this.value == '') && (this.value = 'Leave a comment...')" >
 					<% end %>
 					<% if Like.check_like(session[:user_id], session[:post_id]) %>
-						<%=image_tag ("thumb52.png"), {:class => "like pull-right"} %>
+						<%= image_tag ("thumb52.png"), {:class => "like pull-right"} %>
 					<% else %>
-						<% form_tag('/like_post', method: :post, :id => "like_post")  do %>
-							<%= hidden_field_tag 'id', "like_post" %>
-								<div class="like pull-right" onclick="do_form(like_post)">
-									<%= image_tag ("thumb12.png"), {:class => "like pull-right"} %>
-								</div>
-						<% end %>
+							<a href="/like_post" id="like">
+								<%= image_tag ("thumb12.png"), {:class => "like pull-right"} %>
+							</a>
 					<% end %>
 				<% end %>
 			</div>
