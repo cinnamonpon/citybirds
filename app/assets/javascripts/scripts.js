@@ -45,8 +45,17 @@ $(document).ready(function(){
         });
     });
 
+    $('#unsubscribe').click(function(event){
+        $(this).text("+ Subscribe");
+        $(this).toggleClass('subscribe');
+    });
 });
 
+$("#comment_field").keyup(function(event){
+    if(event.keyCode == 13){
+        document.getElementById("submit_comment").submit();
+    }
+});
 
 //var nameElement = document.forms.myForm.Name;
 
@@ -69,10 +78,9 @@ function nameBlur(e) {
   nameElement.attachEvent("onfocus", nameFocus);
   nameElement.attachEvent("onblur", nameBlur);
 }*/
-    function do_form(id)
-    {
-      document.getElementById(id).submit();
-    }
+function do_form(id){
+   document.getElementById(id).submit();
+}
 
 function newPopup(url) {
     popupWindow = window.open(

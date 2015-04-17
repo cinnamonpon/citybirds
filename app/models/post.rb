@@ -13,4 +13,5 @@ class Post < ActiveRecord::Base
 		recent = Post.find_by_sql('Select * from posts order by created_at desc').to_a;
 		recent
 	end
+
 end

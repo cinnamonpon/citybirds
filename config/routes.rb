@@ -10,6 +10,12 @@ Rails.application.routes.draw do
   get 'discover' => 'pages#discover'
   post 'upload' => 'application#upload'
   post 'view_post' => 'pages#view_post'
+  post 'view_post' => 'pages#view_post'
+  post 'post_comment' => 'pages#post_comment'
+  get 'like_post' => 'pages#like_post'
+  post 'profile' => 'pages#profile'
+  post 'subscribe' => 'pages#subscribe'
+  post 'unsubscribe' => 'pages#unsubscribe'
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

@@ -7,6 +7,7 @@ class ApplicationController < ActionController::Base
   	@curr_post = Post.where(id: session[:post_id]).first
   	@trends = Post.get_trends()
     @new_posts = Post.get_recent()
+    @notifs = Notification.all_noti(session[:user_id])
   end
 
   def upload

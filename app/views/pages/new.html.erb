@@ -13,8 +13,36 @@
 		<div class="headblock"></div>
 		<div class="user pull-right">
 			<% if session[:user_id] %>
+				<ul class="menu" style="margin:0px;padding:0px; display:inline;">
+					<li class="badge"><a href="#" style="margin-bottom:5px;">!</a>
+						<ul style="margin:auto;">
+							<% if @notifs %>
+								<% @notifs.take(4).each do |i| %>
+									<li style="padding: 10px 0px 0px 10px;">
+										<%= form_tag('/profile', method: :post, style: "display:inline;") do %>
+											<%= hidden_field_tag 'id', i.liker %>
+
+											<%= submit_tag User.where(id: i.liker).first.fname, :class=>"submit", :style=>"margin-left:auto;"%>
+										<% end %>
+
+										<%= form_tag('/view_post', method: :post, style: "display:inline;") do %>
+											<%= hidden_field_tag 'id', i.post_id %>
+										
+											<%= submit_tag i.ntype.to_s() +" your post.", :class=>"submit"%>
+										<% end %>
+									</li>	
+								<% end %>
+							<% end %>
+						</ul>
+					</li>
+				</ul>
 				<ul>
-					<li>Hello <%= @curr_user.fname %>!</li>
+					<%= form_tag('/profile', method: :post, :id => session[:user_id]) do %>
+						<%= hidden_field_tag 'id', session[:user_id] %>
+
+						<li>Hello <%= submit_tag  @curr_user.fname, class: "submit" %>!</li>		
+						
+					<% end %>
 					<li style="padding: 5px 2px;">|</li>
 					<li><%= link_to "Log Out", logout_path %></li>
 				</ul>
@@ -27,7 +55,7 @@
 		<div class="nav headroom">
 			<div class="container">
 				<div class="nav-collapse">
-					<div class="logo navbar-nav pull-left">City Birds</div>
+					<div class="logo navbar-nav pull-left" style="color:white;font-family: 'Roboto';">City Birds</div>
 					<ul class="navbar-nav pull-right">
 						<li><a href="index.html">Home</a></li>
 						<li><a href="trending.html">Trending</a></li>
@@ -121,6 +149,7 @@
 			<h3 style="position:absolute;">
 				<%if @curr_post.present?%>
 					<%= @curr_post.title %>
+					<label style="font-size: 12px; color:gray;"><%= Like.get_likes(@curr_post.id) %> likes</label>
 				<% end %>
 			</h3>
 			<a href="JavaScript:newPopup('http://www.facebook.com/sharer/sharer.php?u=<%=request.original_url + '#viewModal'%>');"><%= image_tag ("facebook-share-button.png"), {:class => "user-small pull-right"} %></a>
@@ -141,6 +170,8 @@
 				<label>
 					<% if @curr_user %>
 						<%= @curr_user.fname %>
+					<% else %>
+						Guest
 					<% end %>
 				</label>
 			</div>
@@ -148,27 +179,39 @@
 			<div class="comment-box">
 				<!--NEW USER COMMENT-->
 				Comments
-				<div class="user-comments">
-					<%=image_tag ("2.PNG"), {:class => "user-small"} %>
-					<div class="comment">WHATEVER COMMENT THE USER HAS INPUT. Trying a longer version. :)</div>
-				</div>
+				<% if @all_comments %>
+					<% @all_comments.each do |i| %>
+					<div class="user-comments">
+						<%=image_tag ("2.PNG"), {:class => "user-small"} %>
+						<div class="comment"><strong><%= User.where(id: i.comment_user).first.fname %></strong>: <%= i.message %></div>
+					</div>
+					<% end %>
+				<% else %>
+					<div class="user-comments">
+						<%=image_tag ("2.PNG"), {:class => "user-small"} %>
+						<div class="comment">Comment.all_comments( <%= session[:poster_id] %> , <%= session[:post_id] %>)</div>
+					</div>
+				<% end %>
+ 			</div>
+ 
+ 			<div class="add-comment">
+				<% if session[:user_id] %>
+					<%= form_tag('/post_comment', method: :post, :id => "submit_comment", :style => "display: inline; margin: 0; padding: 0;") do %>
+							<input type= "text" id="comment_field" name="comment" value="Leave a comment..."
+							onfocus="(this.value == 'Leave a comment...') && (this.value = '')"
+							onblur="(this.value == '') && (this.value = 'Leave a comment...')" >
+					<% end %>
+					<% if Like.check_like(session[:user_id], session[:post_id]) %>
+						<%= image_tag ("thumb52.png"), {:class => "like pull-right"} %>
+					<% else %>
+							<a href="/like_post" id="like">
+								<%= image_tag ("thumb12.png"), {:class => "like pull-right"} %>
+							</a>
+					<% end %>
+				<% else %>
+					<label id="login-comment" style="font-size: 12px; color:gray;"><a href="login.html">Log In to like and comment!</a></label>
 
-				<div class="user-comments">
-					<%=image_tag ("4.PNG"), {:class => "user-small"} %>
-					<div class="comment">WHATEVER COMMENT THE USER HAS INPUT. Trying a longer version. :)</div>
-				</div>
-
-				<div class="user-comments">
-					<%=image_tag ("6.PNG"), {:class => "user-small"} %>
-					<div class="comment">WHATEVER COMMENT THE USER HAS INPUT. Trying a longer version. :)</div>
-				</div>
-			</div>
-
-			<div class="add-comment">
-				<input type= "text" value="Leave a comment..."
-				onfocus="(this.value == 'Leave a comment...') && (this.value = '')"
-					onblur="(this.value == '') && (this.value = 'Leave a comment...')" >
-					<%=image_tag ("thumb12.png"), {:class => "like pull-right"} %>
+				<% end %>
 			</div>
 		</div>
 	</div>

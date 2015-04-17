@@ -1,0 +1,133 @@
+
+<html>
+<head>
+	<title>USER PROFILE</title>
+	<link rel="stylesheet" type="text/css" href="style.css">
+	<link href='http://fonts.googleapis.com/css?family=Roboto' rel='stylesheet' type='text/css'>
+</head>
+
+<body>
+
+	<!--HEADER-->
+	
+	<div class="header">
+		<div class="headblock"></div>
+		<div class="user pull-right">
+			<% if session[:user_id] %>
+				<ul class="menu" style="margin:0px;padding:0px; display:inline;">
+					<li class="badge"><a href="#" style="margin-bottom:5px;">!</a>
+						<ul style="margin:auto;">
+							<% if @notifs %>
+								<% @notifs.take(4).each do |i| %>
+									<li style="padding: 10px 0px 0px 10px;">
+										<%= form_tag('/profile', method: :post, style: "display:inline;") do %>
+											<%= hidden_field_tag 'id', i.liker %>
+
+											<%= submit_tag User.where(id: i.liker).first.fname, :class=>"submit", :style=>"margin-left:auto;"%>
+										<% end %>
+
+										<%= form_tag('/view_post', method: :post, style: "display:inline;") do %>
+											<%= hidden_field_tag 'id', i.post_id %>
+										
+											<%= submit_tag i.ntype.to_s() +" your post.", :class=>"submit"%>
+										<% end %>
+									</li>	
+								<% end %>
+							<% end %>
+						</ul>
+					</li>
+				</ul>
+				<ul>
+					<%= form_tag('/profile', method: :post, :id => session[:user_id]) do %>
+						<%= hidden_field_tag 'id', session[:user_id] %>
+
+						<li>Hello <%= submit_tag  @curr_user.fname, class: "submit" %>!</li>		
+						
+					<% end %>
+					<li style="padding: 5px 2px;">|</li>
+					<li><%= link_to "Log Out", logout_path %></li>
+				</ul>
+			<% else %>
+				<ul>
+					<li><%= link_to "Log In | Register", login_path %></li>
+				</ul>
+			<% end %>
+		</div>
+		<div class="nav headroom">
+			<div class="container">
+				<div class="nav-collapse">
+					<div class="logo navbar-nav pull-left" style="color:white;font-family: 'Roboto';">City Birds</div>
+					<ul class="navbar-nav pull-right">
+						<li><a href="index.html">Home</a></li>
+						<li><a href="trending.html">Trending</a></li>
+						<li><a href="new.html">What's New</a></li>
+						<li><a href="discover.html">Community</a></li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!--HEADER END-->
+
+	<div>
+		<a name="Home"></a>
+		<div class="container">
+			<div class="content">
+				<div class="inner-content">
+					<div class="headroom"></div>
+
+					<h1><%= @user.fname %> <%= @user.lname %>
+						<% if @curr_user %>
+							<% if @user.id != @curr_user.id %>
+								<% if @subscribed %>
+									<%= form_tag('/unsubscribe', :multipart => true, :id => "profileform", :remote => true) do %>
+										
+										<%= hidden_field_tag 'subscribee', @user.id %>
+					       				<%= submit_tag "✓  Subscribed", :class => "unsubscribe", :id => "subs" %>
+					       			<% end %>
+					       		<% else %>
+					       			<%= form_tag('/subscribe', :multipart => true, :id => "profileform", :remote => true) do %>
+										
+										<%= hidden_field_tag 'subscribee', @user.id %>
+					       				<%= submit_tag "+  Subscribe", :class => "subscribe", :id => "subs" %>
+					       			<% end %>
+					       		<% end %>
+					 			
+					 		<% end %>
+					 	<% else %>
+					 		<%= button_to "Log in to Subscribe!", login_path, :class => "subscribe", :method => :get %>
+					 	<% end %>
+
+					</h1>
+
+					<p id="member" style="font-size:14px;">
+						Member since: <%= @user.created_at.strftime("%d %b. %Y") %>
+					</p>
+					<hr>
+					<div>
+						<h2 class="profile">User Subscriptions
+							<% if @subscriptions %>
+								<label style="font-size: 12px; color:gray;"><%= @subscriptions.length %></label>
+							<% end %>
+						</h2>
+						<div class = "user-subscriptions">
+							<% if @subscriptions.length > 0 %>
+								<% @subscriptions.sample(4).each do |s| %>
+									<div class="columndiv"><div class="profilesquare">
+										<%= image_tag("unknown.png", width: '130', height: '130', class: "circle")%><br><%= User.where(id: s.subscribee).first.fname%> <%= User.where(id: s.subscribee).first.lname%>
+									</div></div>
+								<% end %>
+							<% else %>
+								<br><br><br>
+								<center style="font-family: 'Roboto';">No user subscriptions yet.</center>
+							<% end %>
+						
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+</body>
+</html>
