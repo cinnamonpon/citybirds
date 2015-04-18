@@ -11,7 +11,50 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150404013939) do
+ActiveRecord::Schema.define(version: 20150417153748) do
+
+  create_table "comments", force: :cascade do |t|
+    t.integer  "post_id",      limit: 4
+    t.integer  "user_id",      limit: 4
+    t.string   "message",      limit: 255
+    t.datetime "created_at",               null: false
+    t.datetime "updated_at",               null: false
+    t.integer  "comment_user", limit: 4
+  end
+
+  create_table "likes", force: :cascade do |t|
+    t.integer  "user_id",    limit: 4
+    t.integer  "post_id",    limit: 4
+    t.datetime "created_at",           null: false
+    t.datetime "updated_at",           null: false
+  end
+
+  create_table "notifications", force: :cascade do |t|
+    t.integer  "post_id",    limit: 4
+    t.integer  "user_id",    limit: 4
+    t.string   "ntype",      limit: 255
+    t.datetime "created_at",             null: false
+    t.datetime "updated_at",             null: false
+    t.integer  "liker",      limit: 4
+  end
+
+  create_table "posts", force: :cascade do |t|
+    t.integer  "user_id",    limit: 4
+    t.string   "path",       limit: 255
+    t.datetime "created_at",             null: false
+    t.datetime "updated_at",             null: false
+    t.string   "title",      limit: 255
+    t.string   "dir",        limit: 255
+    t.string   "mtype",      limit: 255
+    t.integer  "likes",      limit: 4
+  end
+
+  create_table "subscriptions", force: :cascade do |t|
+    t.datetime "created_at",           null: false
+    t.datetime "updated_at",           null: false
+    t.integer  "subscriber", limit: 4
+    t.integer  "subscribee", limit: 4
+  end
 
   create_table "users", force: :cascade do |t|
     t.string   "username",      limit: 255

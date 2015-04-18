@@ -33,7 +33,11 @@ li a:hover, a:hover{
 	border-bottom-right-radius: 10px;
 	border-bottom-left-radius: 10px;
 	height: 25px;
+<<<<<<< HEAD
 	width: 120px;
+=======
+	width: 140px;
+>>>>>>> 485e288a57e6b783330e1840eac6b19d57eb43f6
 	margin-right: 100px;
 }
 .user ul{
@@ -58,6 +62,16 @@ li a:hover, a:hover{
 	font-size: 10px;
 	color: white;
 	padding: 0;
+}
+
+.user-subscriptions{
+	width: 100%;
+	margin-right: auto;
+	margin-left: auto;
+	text-align: center;
+    display: inline-block;
+}
+
 }
 .logo{
 	color: white;
@@ -232,7 +246,11 @@ li a:hover, a:hover{
 
 }
 
+<<<<<<< HEAD
 .login-input input{
+=======
+.login-input input[type="text"], input[type="password"]{
+>>>>>>> 485e288a57e6b783330e1840eac6b19d57eb43f6
 
 	width: 200px;
 	height: 30px;
@@ -246,18 +264,31 @@ li a:hover, a:hover{
 	margin-top: 10px;
 }
 
+<<<<<<< HEAD
 .login-input button{
+=======
+input[name="submit"]{
+>>>>>>> 485e288a57e6b783330e1840eac6b19d57eb43f6
 	background-color: transparent;
 	border-style: none;
 	width: 100px;
 	height: 30px;
+<<<<<<< HEAD
 	border: 1px solid black;
 	margin-left: 200px;
+=======
+	margin-left: 200px;
+	border: 1px solid black;
+>>>>>>> 485e288a57e6b783330e1840eac6b19d57eb43f6
 	font-family: 'Roboto'
 
 }
 
+<<<<<<< HEAD
 .login-input button:hover, 
+=======
+input[name="submit"]:hover, 
+>>>>>>> 485e288a57e6b783330e1840eac6b19d57eb43f6
 .ghost-button:active{
 	background-color: #fff;
 	color: #000;
@@ -268,7 +299,11 @@ input:focus{
 	outline: 0;
 }
 
+<<<<<<< HEAD
 #pass, #conpass{
+=======
+#rpassword, #lpassword, #conpass{
+>>>>>>> 485e288a57e6b783330e1840eac6b19d57eb43f6
 	display: inline-block;
 }
 .align-content{
@@ -287,13 +322,19 @@ hr{
 
 span{
 	color: red;
+<<<<<<< HEAD
+=======
+	padding-bottom: 10px;
+	font-size: 12px;
+	font-family: 'Roboto';
+>>>>>>> 485e288a57e6b783330e1840eac6b19d57eb43f6
 }
 
 .block {
     position: absolute;
     background: #eee;
-    padding: 20px;
-    width: 300px;
+    width: 250px;
+    height: 250px;
     margin-left: 30px;
     border: 1px solid #ddd;
 }
@@ -304,8 +345,9 @@ span{
 }
 
 .block img{
-	width: 20px;
-	height: 20px;
+	margin: auto;
+	width: 200px;
+	height: 200px;
 }
 
 .controls{
@@ -352,6 +394,20 @@ span{
     background: #eee;
     padding: 20px;
     width: 200px;
+    height:200px;
+    margin-left: 30px;
+    border: 1px solid #ddd;
+    color: black;
+    font-family: 'Roboto';
+    cursor: pointer;
+}
+
+.profilesquare{
+    position: relative;
+    background: #eee;
+    padding: 20px;
+    width: 170px;
+    height:170px;
     margin-left: 30px;
     border: 1px solid #ddd;
     color: black;
@@ -367,7 +423,11 @@ span{
 .badge{
 	display: inline-block;
 	min-width: 8px;
+<<<<<<< HEAD
 	padding: 4px;
+=======
+	padding: 0px;
+>>>>>>> 485e288a57e6b783330e1840eac6b19d57eb43f6
 	font-size: 8px;
 	font-weight: bold;
 	line-height: 1;
@@ -377,13 +437,18 @@ span{
 	vertical-align: baseline;
 	background-color: red;
 	border-radius: 10px;
+<<<<<<< HEAD
 
+=======
+	margin-left:5px;
+>>>>>>> 485e288a57e6b783330e1840eac6b19d57eb43f6
 }
 
 .menu,
 .menu ul,
 .menu li,
 .menu a {
+<<<<<<< HEAD
     margin: 0;
     padding: 0;
     border: none;
@@ -395,6 +460,20 @@ span{
     -webkit-border-radius: 5px;
     -moz-border-radius: 5px;
     border-radius: 10px;
+=======
+    margin: 0px;
+    padding: 0px;
+    border: none;
+    outline: none;
+    font-family: 'Roboto';
+}
+ 
+.menu {
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border-radius: 10px;
+    font-family: 'Roboto';
+>>>>>>> 485e288a57e6b783330e1840eac6b19d57eb43f6
 }
 
 .menu li {
@@ -404,6 +483,10 @@ span{
     display: block;
     height: 19px;
     margin-bottom: 10px;
+<<<<<<< HEAD
+=======
+    font-family: 'Roboto';
+>>>>>>> 485e288a57e6b783330e1840eac6b19d57eb43f6
  
 }
 
@@ -473,7 +556,11 @@ span{
     height: 36px;
     overflow: visible;
     padding: 0;
+<<<<<<< HEAD
     width: 200px;
+=======
+    width: 150px;
+>>>>>>> 485e288a57e6b783330e1840eac6b19d57eb43f6
 }
 
 
@@ -592,7 +679,11 @@ span{
 .modalDialog, .viewDialog {
   position: fixed;
   font-family: 'Roboto';
+<<<<<<< HEAD
   top: 0;
+=======
+  top: -60px;
+>>>>>>> 485e288a57e6b783330e1840eac6b19d57eb43f6
   right: 0;
   bottom: 0;
   left: 0;
@@ -609,7 +700,10 @@ span{
 	opacity:1;
 	pointer-events: auto;
 }
+<<<<<<< HEAD
 
+=======
+>>>>>>> 485e288a57e6b783330e1840eac6b19d57eb43f6
 .modalDialog > div {
 	width: 500px;
 	position: relative;
@@ -640,17 +734,48 @@ span{
 
 .close:hover { background: blue; }
 
+<<<<<<< HEAD
 .post-types{
 	height: 150px;
 }
 .post-types label{
 	padding-left: 0px;
 	padding-right: 40px;
+=======
+.title{
+	font-size: 12px;
+}
+
+
+.post{
+    position: relative;
+    background: #eee;
+    padding: 20px;
+    width: 200px;
+    height:210px;
+    margin-left: 30px;
+    border: 1px solid #ddd;
+    color: black;
+    font-family: 'Roboto';
+    cursor: pointer;
+}
+
+.post-types{
+	margin-left: auto;
+	height: 150px;
+	margin-right: auto;
+}
+.post-types label{
+	padding-left: 5px;
+>>>>>>> 485e288a57e6b783330e1840eac6b19d57eb43f6
 }
 .post-types img{
 	width:100px;
 	height:100px;
+<<<<<<< HEAD
 	margin-right: 20px;
+=======
+>>>>>>> 485e288a57e6b783330e1840eac6b19d57eb43f6
 	margin-top: 10px;
 }
 
@@ -669,7 +794,11 @@ span{
 	text-align: left;
 }
 
+<<<<<<< HEAD
 .hidden-input button{
+=======
+.hidden-input input[type="submit"]{
+>>>>>>> 485e288a57e6b783330e1840eac6b19d57eb43f6
 	margin-left: 200px;
 	margin-top: 30px;
 	width: 100px;
@@ -678,7 +807,11 @@ span{
 	font-family: 'Roboto'
 }
 
+<<<<<<< HEAD
 .hidden-input input{
+=======
+.hidden-input input[type="text"]{
+>>>>>>> 485e288a57e6b783330e1840eac6b19d57eb43f6
 	width: 250px;
 	height: 30px;
 	color: black;
@@ -688,14 +821,22 @@ span{
 	border-style: none;
 	border-radius: 10px;
 	margin-left: 30px;
+<<<<<<< HEAD
 	margin-top: 10px;
+=======
+	margin-top: 20px;
+>>>>>>> 485e288a57e6b783330e1840eac6b19d57eb43f6
 	font-family: 'Roboto';
 	font-size: 18px;
 	padding-left: 20px;
 }
 
 .hidden-input label{
+<<<<<<< HEAD
 	margin: 0px;
+=======
+	margin: auto;
+>>>>>>> 485e288a57e6b783330e1840eac6b19d57eb43f6
 	padding: 0px;
 	margin-left: 30px;
 }
@@ -716,6 +857,34 @@ span{
 }
 
 .submit img:hover{ width: 20px; height: 20px;}
+<<<<<<< HEAD
+=======
+}
+
+label.filebutton {
+    width:120px;
+    height:40px;
+    overflow:hidden;
+    position:relative;
+    background-color:#ccc;
+}
+
+label span input {
+    z-index: 999;
+    line-height: 0;
+    font-size: 50px;
+    position: absolute;
+    top: -2px;
+    left: -700px;
+    opacity: 0;
+    filter: alpha(opacity = 0);
+    -ms-filter: "alpha(opacity=0)";
+    cursor: pointer;
+    _cursor: hand;
+    margin: 0;
+    padding:0;
+}
+>>>>>>> 485e288a57e6b783330e1840eac6b19d57eb43f6
 
 .media-box{
 	background-color: transparent;
@@ -785,6 +954,60 @@ span{
 	margin-right:6px;
 }
 
+<<<<<<< HEAD
+=======
+.subscribe{
+	font-size: 20px;
+	font-family: 'Roboto';
+	border-radius: 4px;
+	border-width: 1px;
+	border-color: blue;
+	background-color: blue;
+	float: right;
+	color: white;
+	margin-top: 0px;
+	margin-right: 5%;
+	padding: 5px 14px 3px 14px;
+	cursor: pointer;
+}
+
+.unsubscribe{
+	font-size: 20px;
+	font-family: 'Roboto';
+	border-radius: 4px;
+	border-width: 1px;
+	border-color: blue;
+	float: right;
+	color: blue;
+	margin-top: 0px;
+	margin-right: 5%;
+	padding: 3px 6px 3px 6px;
+	cursor: pointer;
+}
+
+.submit{
+	vertical-align:bottom;
+	overflow:visible;
+	font-size:11px; 
+	display:inline;  
+	margin:0; 
+	padding:0;
+	border:0;
+	background-color: transparent;
+	color:white; 
+	cursor:pointer;
+}
+
+.submit:hover{
+	text-decoration: underline;
+}
+
+h2 {
+	padding-left: 50px;
+	font-family: 'Roboto';
+}
+
+>>>>>>> 485e288a57e6b783330e1840eac6b19d57eb43f6
 ::-webkit-scrollbar {
       width: 15px;
 }

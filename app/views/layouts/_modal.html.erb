@@ -1,0 +1,42 @@
+<div id="viewModal" class="viewDialog">
+	<div>
+		<a href = "#close" title = "Close" class = "close"> x </a>
+		<h3 style="position:absolute;">TITLE OF THE POST</h3>
+		<%=image_tag ("facebook-share-button.png"), {:class => "user-small pull-right"} %>
+		
+		<div class="media-box">
+			
+		</div>
+
+		<div class="user-info-box">
+			<%=image_tag ("2.PNG"), {:class => "user-small"} %>
+			<label>[USERNAME]</label>
+		</div>
+
+		<div class="comment-box">
+			<!--NEW USER COMMENT-->
+			Comments
+			<div class="user-comments">
+				<%=image_tag ("2.PNG"), {:class => "user-small"} %>
+				<div class="comment">WHATEVER COMMENT THE USER HAS INPUT. Trying a longer version. :)</div>
+			</div>
+
+			<div class="user-comments">
+				<%=image_tag ("4.PNG"), {:class => "user-small"} %>
+				<div class="comment">WHATEVER COMMENT THE USER HAS INPUT. Trying a longer version. :)</div>
+			</div>
+
+			<div class="user-comments">
+				<%=image_tag ("6.PNG"), {:class => "user-small"} %>
+				<div class="comment">WHATEVER COMMENT THE USER HAS INPUT. Trying a longer version. :)</div>
+			</div>
+		</div>
+
+		<div class="add-comment">
+			<input type= "text" value="Leave a comment..."
+			onfocus="(this.value == 'Leave a comment...') && (this.value = '')"
+				onblur="(this.value == '') && (this.value = 'Leave a comment...')" >
+				<%=image_tag ("thumb12.png"), {:class => "like pull-right"} %>
+		</div>
+	</div>
+</div>

@@ -13,8 +13,36 @@
 		<div class="headblock"></div>
 		<div class="user pull-right">
 			<% if session[:user_id] %>
+				<ul class="menu" style="margin:0px;padding:0px; display:inline;">
+					<li class="badge"><a href="#" style="margin-bottom:5px;">!</a>
+						<ul style="margin:auto;">
+							<% if @notifs %>
+								<% @notifs.take(4).each do |i| %>
+									<li style="padding: 10px 0px 0px 10px;">
+										<%= form_tag('/profile', method: :post, style: "display:inline;") do %>
+											<%= hidden_field_tag 'id', i.liker %>
+
+											<%= submit_tag User.where(id: i.liker).first.fname, :class=>"submit", :style=>"margin-left:auto;"%>
+										<% end %>
+
+										<%= form_tag('/view_post', method: :post, style: "display:inline;") do %>
+											<%= hidden_field_tag 'id', i.post_id %>
+										
+											<%= submit_tag i.ntype.to_s() +" your post.", :class=>"submit"%>
+										<% end %>
+									</li>	
+								<% end %>
+							<% end %>
+						</ul>
+					</li>
+				</ul>
 				<ul>
-					<li>Hello <%= @curr_user.fname %>!</li>
+					<%= form_tag('/profile', method: :post, :id => session[:user_id]) do %>
+						<%= hidden_field_tag 'id', session[:user_id] %>
+
+						<li>Hello <%= submit_tag  @curr_user.fname, class: "submit" %>!</li>		
+						
+					<% end %>
 					<li style="padding: 5px 2px;">|</li>
 					<li><%= link_to "Log Out", logout_path %></li>
 				</ul>
@@ -27,7 +55,7 @@
 		<div class="nav headroom">
 			<div class="container">
 				<div class="nav-collapse">
-					<div class="logo navbar-nav pull-left">City Birds Logo</div>
+					<div class="logo navbar-nav pull-left" style="color:white;font-family: 'Roboto';">City Birds</div>
 					<ul class="navbar-nav pull-right">
 						<li class="active"><a href="index.html">Home</a></li>
 						<li><a href="#Trending">Trending</a></li>
@@ -63,11 +91,43 @@
 					<div class="banner-text" style="margin-left:740px;">TRENDING</div>
 					<!--POSTS-->
 					<div class="mainDIV">
+<<<<<<< HEAD
 					    <div class="leftDIV tv"><a href="#viewModal">VIEW</a></div>
 					    <div class="middleDIV tv"><a href="#viewModal">VIEW</a></div>
 					    <div class="rightDIV tv"><a href="#viewModal">VIEW</a></div>
 					</div>
 					<div id="triangle-down"></div>
+=======
+					    <div class="leftDIV">
+					    <% if @trends[0] %>
+					    	<%if @trends[0].mtype.start_with?('image') %>
+								<%= image_tag(@trends[0].dir,  size: "200x200") %>
+							<% else %>
+								<%= video_tag(@trends[0], size: "200x200", autoplay: "autoplay", loop: "loop") %>
+							<% end %>
+					    <% end %>
+					    </div>
+					    <div class="middleDIV">
+					    <% if @trends[1] %>
+					    	<%if @trends[1].mtype.start_with?('image') %>
+								<%= image_tag(@trends[1].dir,  size: "200x200") %>
+							<% else %>
+								<%= video_tag(@trends[1].dir, size: "200x200", autoplay: "autoplay", loop: "loop") %>
+							<% end %>
+					    <% end %>
+					    </div>
+					    <div class="rightDIV">
+					    <% if @trends[2] %>
+					    	<%if @trends[2].mtype.start_with?('image') %>
+								<%= image_tag(@trends[2].dir,  size: "200x200") %>
+							<% else %>
+								<%= video_tag(@trends[2], size: "200x200", autoplay: "autoplay", loop: "loop") %>
+							<% end %>
+					    <% end %>
+					    </div>
+					</div>
+					<a href="/trending" ><div id="triangle-down"></div></a>
+>>>>>>> 485e288a57e6b783330e1840eac6b19d57eb43f6
 				</div>
 			</div>
 			<a name="New"></a>
@@ -80,11 +140,43 @@
 					<div class="banner-text" style="margin-left:755px; font-size:60px; margin-top:70px;">WHAT'S NEW</div>
 					<!--POSTS-->
 					<div class="mainDIV">
+<<<<<<< HEAD
 					    <div style="background:#FFCC33;"class="leftDIV tv"><a href="#viewModal">VIEW</a></div>
 					    <div style="background:#FFCC33;" class="middleDIV tv"><a href="#viewModal">VIEW</a></div>
 					    <div style="background:#FFCC33;" class="rightDIV tv"><a href="#viewModal">VIEW</a></div>
 					</div>
 					<div id="triangle-down"></div>
+=======
+					    <div style="background:#FFCC33;"class="leftDIV">
+					    <% if @new_posts[0] %>
+						    <%if @new_posts[0].mtype.start_with?('image') %>
+								<%= image_tag(@new_posts[0].dir,  size: "200x200") %>
+							<% else %>
+								<%= video_tag(@new_posts[0], size: "200x200", autoplay: "autoplay", loop: "loop") %>
+							<% end %>
+					   	<% end %>
+					    </div>
+					    <div style="background:#FFCC33;" class="middleDIV">
+					    <% if @new_posts[1] %>
+					    	<%if @new_posts[1].mtype.start_with?('image') %>
+								<%= image_tag(@new_posts[1].dir,  size: "200x200") %>
+							<% else %>
+								<%= video_tag(@new_posts[1], size: "200x200", autoplay: "autoplay", loop: "loop") %>
+							<% end %>
+					   	<% end %>	
+					    </div>
+					    <div style="background:#FFCC33;" class="rightDIV">
+					    <% if @new_posts[2] %>
+					    	<%if @new_posts[0].mtype.start_with?('image') %>
+								<%= image_tag(@new_posts[3].dir,  size: "200x200") %>
+							<% else %>
+								<%= video_tag(@new_posts[3], size: "200x200", autoplay: "autoplay", loop: "loop") %>
+							<% end %>
+					   	<% end %>
+					    </div>
+					</div>
+					<a href="/new" ><div id="triangle-down"></div></a>
+>>>>>>> 485e288a57e6b783330e1840eac6b19d57eb43f6
 				</div>
 			</div>
 			<a name="Discover"></a>
@@ -97,6 +189,7 @@
 					<div class="banner-text" style="margin-left:650px;">COMMUNITY</div>
 					<!--POSTS-->
 					<div class="mainDIV">
+<<<<<<< HEAD
 					    <div style="background:none;"class="leftDIV">
 					    <%=image_tag ("2.PNG"), {:class => "user-badge"} %>
 					    	<div class="name"></div>
@@ -106,17 +199,36 @@
 					    	<div class="name"></div>
 					    </div>
 					    <div style="background:none;" class="rightDIV tv">
+=======
+					    <div style="background:red;"class="leftDIV">
+					    <%=image_tag ("2.PNG"), {:class => "user-badge"} %>
+					    	<div class="name"></div>
+						</div>
+					    <div style="background:red;" class="middleDIV">
+					    <%=image_tag ("4.PNG"), {:class => "user-badge"} %>
+					    	<div class="name"></div>
+					    </div>
+					    <div style="background:red;" class="rightDIV">
+>>>>>>> 485e288a57e6b783330e1840eac6b19d57eb43f6
 					    <%=image_tag ("6.PNG"), {:class => "user-badge"} %>
 					    	<div class="name"></div>
 					    </div>
 					</div>
+<<<<<<< HEAD
 					<div id="triangle-down"></div>
+=======
+					<a href="/discover"> <div id="triangle-down"></div></a>
+>>>>>>> 485e288a57e6b783330e1840eac6b19d57eb43f6
 				</div>
 			</div>
 		</div>
 	</div>
 
 	<!--FOOTER-->
+<<<<<<< HEAD
+=======
+	<% if session[:user_id] %>
+>>>>>>> 485e288a57e6b783330e1840eac6b19d57eb43f6
 		<div class="sticky-controls">
 				<div class="wrap">
 					<div class="controls pull-left">
@@ -128,6 +240,7 @@
 					<div>
 						<a href = "#close" title = "Close" class = "close"> x </a>
 						<h3>Upload New Post</h3>
+<<<<<<< HEAD
 						<div class="post-types">
 							<div>
 								<li><%= link_to image_tag("camera-icon.png") %></li>
@@ -151,11 +264,52 @@
 							<label>SUBMMITED!</label>
 						</div>
 					</div>
+=======
+
+						<%= form_tag('/upload', :multipart => true) do %>
+
+							<div class="post-types">
+
+								<label class="filebutton">
+									<%= image_tag("camera-icon.png") %>
+									<span><%= file_field_tag :post, :class => "upload", :accept => ".png,.jpg,.gif,.bmp" %></span>
+								</label>
+								<label class="filebutton">
+									<%= image_tag("video-icon.png")  %>
+									<span><%= file_field_tag :post, :class => "upload", :accept => ".mp4,.wav,.avi,.mov"%></span>
+								</label>
+
+								<div>
+									<label style="padding:25px;">PHOTO</label>
+									<label style="padding:25px;">VIDEO</label>
+								</div>
+								<label id="filename" style="padding:5px; font-size:12px; color:gray;"></label>
+
+							</div>
+
+		        			<div class="hidden-input" style="visibility:hidden;">
+								<label>TITLE:</label>
+								<%= text_field_tag 'title', nil, placeholder: 'Title' %>
+								<span id="error"></span>
+								<%= submit_tag "UPLOAD", :id => "sub", :style => "padding:0px;"%>
+								<br>
+							</div>
+	
+							<div class="submit" style="visibility:hidden;">
+								<li><%= image_tag("checkmark.png") %></li>
+								<label>SUBMITTED!</label>
+							</div>
+	        				
+	        			<% end %>
+
+>>>>>>> 485e288a57e6b783330e1840eac6b19d57eb43f6
 				</div>
 		</div>
+	<% end %>
 	<!--end footer-->
 
 	<div id="viewModal" class="viewDialog">
+<<<<<<< HEAD
 				<div>
 					<a href = "#close" title = "Close" class = "close"> x </a>
 					<h3 style="position:absolute;">TITLE OF THE POST</h3>
@@ -198,5 +352,78 @@
 				</div>
 	</div>
 
+=======
+		<div>
+			<a href = "#close" title = "Close" class = "close"> x </a>
+			<h3 style="position:absolute;">
+				<%if @curr_post.present?%>
+					<%= @curr_post.title %>
+					<label style="font-size: 12px; color:gray;"><%= Like.get_likes(@curr_post.id) %> likes</label>
+				<% end %>
+			</h3>
+			<a href="JavaScript:newPopup('http://www.facebook.com/sharer/sharer.php?u=<%=request.original_url + '#viewModal'%>');"><%= image_tag ("facebook-share-button.png"), {:class => "user-small pull-right"} %></a>
+			
+			<div class="media-box">
+				<%if @curr_post %>
+					<%if @curr_post.mtype.start_with?('image') %>
+						<%= image_tag(@curr_post.dir,  size: "340x340") %>
+					<% else %>
+							<%= video_tag(@curr_post.dir, size: "340x340", autoplay: "autoplay", loop: "loop") %>
+					<% end %>
+					
+				<% end %>
+			</div>
+
+			<div class="user-info-box">
+				<%=image_tag ("2.PNG"), {:class => "user-small"} %>
+				<label>
+					<% if @curr_user %>
+						<%= @curr_user.fname %>
+					<% else %>
+						Guest
+					<% end %>
+				</label>
+			</div>
+
+			<div class="comment-box">
+				<!--NEW USER COMMENT-->
+				Comments
+				<% if @all_comments %>
+					<% @all_comments.each do |i| %>
+					<div class="user-comments">
+						<%=image_tag ("2.PNG"), {:class => "user-small"} %>
+						<div class="comment"><strong><%= User.where(id: i.comment_user).first.fname %></strong>: <%= i.message %></div>
+					</div>
+					<% end %>
+				<% else %>
+					<div class="user-comments">
+						<%=image_tag ("2.PNG"), {:class => "user-small"} %>
+						<div class="comment">Comment.all_comments( <%= session[:poster_id] %> , <%= session[:post_id] %>)</div>
+					</div>
+				<% end %>
+ 			</div>
+ 
+ 			<div class="add-comment">
+				<% if session[:user_id] %>
+					<%= form_tag('/post_comment', method: :post, :id => "submit_comment", :style => "display: inline; margin: 0; padding: 0;") do %>
+							<input type= "text" id="comment_field" name="comment" value="Leave a comment..."
+							onfocus="(this.value == 'Leave a comment...') && (this.value = '')"
+							onblur="(this.value == '') && (this.value = 'Leave a comment...')" >
+					<% end %>
+					<% if Like.check_like(session[:user_id], session[:post_id]) %>
+						<%= image_tag ("thumb52.png"), {:class => "like pull-right"} %>
+					<% else %>
+							<a href="/like_post" id="like">
+								<%= image_tag ("thumb12.png"), {:class => "like pull-right"} %>
+							</a>
+					<% end %>
+				<% else %>
+					<label id="login-comment" style="font-size: 12px; color:gray;"><a href="login.html">Log In to like and comment!</a></label>
+
+				<% end %>
+			</div>
+		</div>
+	</div>
+>>>>>>> 485e288a57e6b783330e1840eac6b19d57eb43f6
 </body>
 </html>
